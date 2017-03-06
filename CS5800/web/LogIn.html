@@ -15,7 +15,7 @@ and open the template in the editor.
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Airline 12</title>
+        <title>Log in please</title>
         <style type="text/css">
             
             * {
@@ -83,17 +83,22 @@ and open the template in the editor.
     
     <body>
              
-        <div class="content" >
+         <div class="content" >
 
-         <div style="margin-left: 35%;background: rgba(255,255,255,.4);border-radius: 25px;border: 2px solid #a1a1a1;padding: 50px; width: 25%">
-           <br>
-           <p>                             Welcome <br /><br />  </p>
-           
-           <p>Did not sign up yet? <br/><a href="/CS5800/JSP/SignUp.jsp"><br />Sign Up</a><br /><br /></p>
-           
-           <p>Already a customer?  <br /> <a href="/CS5800/LogIn.html"><br />Log in</a><br /><br /></p>
+         <div style="margin-left: 35%;background: rgba(255,255,255,.4);border-radius: 25px;border: 2px solid #a1a1a1;padding: 50px; width: 50%">
+            <form name="myForm" action="LogIn" method="post">
+                <h1>Log In</h1>
+                <br>
+                <br>
+                Email:<br>
+                <input type="email" name="email" style="width: 100%" required><br>
+                Password:<br>
+                <input type="password" name="password" style="width: 100%" required><br>
+                <br>
+                <input type="submit" value="Submit">
+            </form>
+            <!--Complete Interface Addnew.-->
 
-           <br>
         </div>
         </div>
         

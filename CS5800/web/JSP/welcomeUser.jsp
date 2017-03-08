@@ -112,26 +112,17 @@
                                 <%
                                     System.out.println("good");
                                     UserDataAccess da = new UserDataAccess();
-                                    da.confirm(email, -1);
+                                    da.confirm(email, 1);
                                 %>
 
 
                             </c:if>
                         </c:if>
-                        
+
                     </c:forEach>
-                    
-
-<h1>You are all good. Thank you for joining team 12 airline!!!!!!!!</h1>
-<h2>go back to home page  
-    <form name="myForm" action="index" method="post">
-                                <input type="submit" value="home">
-                            </form> 
-    </h2>
 
 
-
-               
+                    <%response.sendRedirect("LogIn.html");%>
 
 
 
@@ -147,25 +138,29 @@
 
 
 
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-        <script type="text/javascript">
-
-            (function () {
-
-                var bodyEl = $('body'),
-                        navToggleBtn = bodyEl.find('.nav-toggle-btn');
-
-                navToggleBtn.on('click', function (e) {
-                    bodyEl.toggleClass('active-nav');
-                    e.preventDefault();
-                });
 
 
 
-            })();
+
+                    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+                    <script type="text/javascript">
+
+                        (function () {
+
+                            var bodyEl = $('body'),
+                                    navToggleBtn = bodyEl.find('.nav-toggle-btn');
+
+                            navToggleBtn.on('click', function (e) {
+                                bodyEl.toggleClass('active-nav');
+                                e.preventDefault();
+                            });
 
 
-        </script>
 
-    </body>
+                        })();
+
+
+                    </script>
+
+            </body>
 </html>

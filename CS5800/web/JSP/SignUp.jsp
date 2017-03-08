@@ -18,142 +18,129 @@ and open the template in the editor.
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Wings For You Airline Sign up</title>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../css/reset.css" type="text/css" media="all">
+<link rel="stylesheet" href="../css/layout.css" type="text/css" media="all">
+<link rel="stylesheet" href="../css/style.css" type="text/css" media="all">
+<script type="text/javascript" src="../js/jquery-1.4.2.js" ></script>
+<script type="text/javascript" src="../js/cufon-yui.js"></script>
+<script type="text/javascript" src="../js/cufon-replace.js"></script>
+<script type="text/javascript" src="../js/Myriad_Pro_italic_600.font.js"></script>
+<script type="text/javascript" src="../js/Myriad_Pro_italic_400.font.js"></script>
+<script type="text/javascript" src="../js/Myriad_Pro_400.font.js"></script>
+<!--[if lt IE 9]>
+<script type="text/javascript" src="js/ie6_script_other.js"></script>
+<script type="text/javascript" src="js/html5.js"></script>
+<![endif]-->
+</head>
+<body id="page5">
+<!-- START PAGE SOURCE -->
+<div class="body1">
+  <div class="main">
+    <header>
+      <div class="wrapper">
+        <h1><a href="/CS5800/index" id="logo">AirLines</a><span id="slogan">Wings For You</span></h1>
+        <div class="right">
+          <nav>
+            <ul id="menu">
+              <li><a href="/CS5800/index">Home</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+  </div>
+</div>
 
-
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Team 12 -Sign Up</title>
-        <style type="text/css">
-
-            * {
-                margin: 0;
-                padding: 0;
-            }
-
-            body {
-                font-family: Open Sans, Arial, sans-serif;
-                overflow-x: hidden;
-            }
-
-            nav {
-                position: fixed;
-                z-index: 1000;
-                top: 0;
-                bottom: 0;
-                width: 200px;
-                background-color: #036;
-                transform: translate3d(-200px, 0, 0);
-                transition: transform 0.4s ease;
-            }
-            .active-nav nav {
-                transform: translate3d(0, 0, 0);
-            }
-            nav ul {
-                list-style: none;
-                margin-top: 100px;
-            }
-            nav ul li a {
-                text-decoration: none;
-                display: block;
-                text-align: center;
-                color: #fff;
-                padding: 10px 0;
-            }
-
-            .nav-toggle-btn {
-                display: block;
-                position: absolute;
-                left: 200px;
-                width: 40px;
-                height: 40px;
-                background-color: #666;
-            }
-
-            .content {
-                padding-top: 100px;
-                height: 2000px;
-                background-color: #ccf;
-                transition: transform 0.4s ease;
-            }
-            .active-nav .content {
-                transform: translate3d(200px, 0, 0);
-            }
-
-
-        </style>
-    </head>
-
-
-
-
-
-
-    <body>
-
-
-        <div class="content" >
-
-
-            <br>     
-
-            <%
-                //String type = request.getParameter("accountType");  
-            %>
-
-            <div style="margin-left: 35%;background: rgba(255,255,255,.4);border-radius: 25px;border: 2px solid #a1a1a1;padding: 50px; width: 25%">
-                <h1>Sign Up</h1>
-                <br>
-                <form name="myForm" action="/CS5800/NewUser" onsubmit="return validateForm()" method="post">
-
-
-                    <br><br>
-                    *First name: (any)<br>
-                    <input type="text" name="fname" style="width: 100%" required><br>
-                    <br><br>
-                    *Last name: (any)<br>
-                    <input type="text" name="lname" style="width: 100%" required><br>
-
-                    *Age: (integer)<br>
-                    <input type="text" name="age" style="width: 100%" ><br>
-
-
-                    *valid id: (integer)<br>
-                    <input type="text" name="id" style="width: 100%" ><br>
-
-                    *Gender:<br>
-                    <select name="gender" style="width: 100%" required>
+<div class="main">
+  <section id="content">
+    <article class="col2 pad_left1">
+      <h2>Please fill the registration form </h2>
+      
+      <form id="ContactForm" name="myForm" action="/CS5800/NewUser" onsubmit="return validateForm()" method="post">
+        <div>
+          <div class="wrapper">
+            <div class="bg">
+              <input type="text" name="fname" class="input" required>
+            </div>
+            *First name:<br />
+          </div>
+          <div class="wrapper">
+            <div class="bg">
+              <input type="text" name="lname" class="input" required>
+            </div>
+            *Last name:<br />
+          </div>
+          <div class="wrapper">
+            <div class="bg">
+              <input type="text" name="age" class="input" required>
+            </div>
+            *Age:<br />
+          </div>
+          <div class="wrapper">
+            <div class="bg">
+              <input type="text" name="id" class="input" required>
+            </div>
+            *valid id:<br />
+          </div>
+          <div class="wrapper">
+            <div class="bg">
+              <select name="gender"  class="input" required>
                         <option value="Male">Male</option>
                         <option value="Female">Female</option>
                     </select><br>
-                    *Address: (must have # and street)<br>
-                    <input type="text" name="address" style="width: 100%" required><br>
-                    *Zip: (5 digits)<br>
-                    <input type="text" name="zip" style="width: 100%" required><br>
-                    *Phone: (10 digits)<br>
-                    <input type="text" name="phone" style="width: 100%" required><br>
-                    Phone Backup: (10 digits)<br>
-                    <input type="text" name="phoneBackup" style="width: 100%"><br>
-                    *Email: (standard format)<br>
-                    <input type="email" name="email" style="width: 100%" required><br>
-                    Email Backup: (standard format)<br>
-                    <input type="email" name="emailBackup" style="width: 100%"><br>
-                    *Password: (8 digits, at least one: special char, digit, lowercase, uppercase)<br>
-                    <input type="password" name="password" style="width: 100%" required><br>
-                    *Password Confirmation: (match Password)<br>
-                    <input type="password" name="passwordConfirmation" style="width: 100%" required><br>
-                    <br>
-                    <input type="submit" value="Submit">
-                </form>
-                <!--Complete Interface Addnew.-->
             </div>
-
-
-
-
-
-            <script>
+            *Gender: <br />
+          </div>
+          <div class="wrapper">
+            <div class="bg">
+              <input type="text" name="address" class="input" required>
+            </div>
+            *Address (must have # and street):<br /><br />
+          </div>
+          <div class="wrapper">
+            <div class="bg">
+              <input type="text" name="zip" class="input" required>
+            </div>
+            *Zip: (5 digits) <br />
+          </div>
+          <div class="wrapper">
+            <div class="bg">
+              <input type="text" name="phone" class="input" required>
+            </div>
+             *Phone: (10 digits)<br />
+          </div>
+          <div class="wrapper">
+            <div class="bg">
+              <input type="text" name="email" class="input" required>
+            </div>
+             *Email:<br />
+          </div>
+          <div class="wrapper">
+            <div class="bg">
+             <input type="password" name="password"  class="input" required>
+            </div>
+             *Password:<br />
+             (8 digits, at least one: special char, digit, lowercase, uppercase)<br>
+          </div>
+          <div class="wrapper">
+            <div class="bg">
+             <input type="password" name="passwordConfirmation"  class="input" required>
+            </div>
+             *Password Confirmation:<br />
+             (match Password)<br>
+          </div>
+          <input type="submit" value="Submit" class="button1">
+          
+      </form>
+      
+    </article>
+  </section>
+   <script>
 
                 window.onload = function () {
                     myFunction();
@@ -274,46 +261,38 @@ and open the template in the editor.
 
 
             </script>
-
-        </div>
-
-
-
-
-
-
-
-        <nav>
-
-            <a href="#" class="nav-toggle-btn"></a>
-
-            <ul>
-                <li><a href="/CS5800/index">Home</a></li>
-                <li><a href="/CS5800/LogIn.html">Log In</a></li>
-            </ul>
-
-        </nav>
-
-
-
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-        <script type="text/javascript">
-
-                (function () {
-
-                    var bodyEl = $('body'),
-                            navToggleBtn = bodyEl.find('.nav-toggle-btn');
-
-                    navToggleBtn.on('click', function (e) {
-                        bodyEl.toggleClass('active-nav');
-                        e.preventDefault();
-                    });
-
-                })();
-
-
-        </script>
-
-    </body>
+</div>
+<div class="body2">
+  <div class="main">
+    <footer>
+      <div class="footerlink">
+        <p class="lf">Copyright &copy; 2010  - All Rights Reserved</p>
+        <p class="rf">Template from<a href="http://www.templatemonster.com/">TemplateMonster</a></p>
+        <div style="clear:both;"></div>
+      </div>
+    </footer>
+  </div>
+</div>
+<script type="text/javascript"> Cufon.now(); </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script type="text/javascript">
+        
+        (function() {
+            
+            var bodyEl = $('body'),
+                navToggleBtn = bodyEl.find('.nav-toggle-btn');
+            
+            navToggleBtn.on('click', function(e) {
+                bodyEl.toggleClass('active-nav');
+                e.preventDefault();
+            });
+            
+            
+            
+        })();
+        
+        
+    </script>
+<!-- END PAGE SOURCE -->
+</body>
 </html>
-

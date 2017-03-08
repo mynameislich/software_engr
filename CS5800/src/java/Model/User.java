@@ -25,7 +25,7 @@ public class User {
     String m_gender;
     int m_confirmed;
 
-    public User(String email, String password, String address, String zipcode, String firstname, String lastname, int loggedin, int work_id, int valid, int age, String phone, String gender, int confirm) {
+    public User(String email, String password, String address, String zipcode, String firstname, String lastname, int loggedin, int valid, int age, int work_id, String phone, String gender, int confirm) {
         m_email = email;
         m_password = password;
         m_address = address;

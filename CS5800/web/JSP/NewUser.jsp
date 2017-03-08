@@ -18,124 +18,82 @@
 <%@page import="java.util.List"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
-
-<html>
+<!DOCTYPE html>
+<html lang="en">
     <head>
+        <title>Wings For You Airline| Confirmation</title>
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>adding user into database</title>
-        <style type="text/css">
-
-            * {
-                margin: 0;
-                padding: 0;
-            }
-
-            body {
-                font-family: Open Sans, Arial, sans-serif;
-                overflow-x: hidden;
-            }
-
-            nav {
-                position: fixed;
-                z-index: 1000;
-                top: 0;
-                bottom: 0;
-                width: 200px;
-                background-color: #036;
-                transform: translate3d(-200px, 0, 0);
-                transition: transform 0.4s ease;
-            }
-            .active-nav nav {
-                transform: translate3d(0, 0, 0);
-            }
-            nav ul {
-                list-style: none;
-                margin-top: 100px;
-            }
-            nav ul li a {
-                text-decoration: none;
-                display: block;
-                text-align: center;
-                color: #fff;
-                padding: 10px 0;
-            }
-
-            .nav-toggle-btn {
-                display: block;
-                position: absolute;
-                left: 200px;
-                width: 40px;
-                height: 40px;
-                background-color: #666;
-            }
-
-            .content {
-                padding-top: 100px;
-                height: 2000px;
-                background-color: #ccf;
-                transition: transform 0.4s ease;
-            }
-            .active-nav .content {
-                transform: translate3d(200px, 0, 0);
-            }
-
-
-        </style>
+        <link rel="stylesheet" href="css/reset.css" type="text/css" media="all">
+        <link rel="stylesheet" href="css/layout.css" type="text/css" media="all">
+        <link rel="stylesheet" href="css/style.css" type="text/css" media="all">
+        <script type="text/javascript" src="js/jquery-1.4.2.js" ></script>
+        <script type="text/javascript" src="js/cufon-yui.js"></script>
+        <script type="text/javascript" src="js/cufon-replace.js"></script>
+        <script type="text/javascript" src="js/Myriad_Pro_italic_600.font.js"></script>
+        <script type="text/javascript" src="js/Myriad_Pro_italic_400.font.js"></script>
+        <script type="text/javascript" src="js/Myriad_Pro_400.font.js"></script>
+        <!--[if lt IE 9]>
+        <script type="text/javascript" src="js/ie6_script_other.js"></script>
+        <script type="text/javascript" src="js/html5.js"></script>
+        <![endif]-->
     </head>
+    <body id="page5">
+        <!-- START PAGE SOURCE -->
+        <div class="body1">
+            <div class="main">
+                <header>
+                    <div class="wrapper">
+                        <h1><a href="/CS5800/index" id="logo">AirLines</a><span id="slogan">Wings For You</span></h1>
+                        <div class="right">
+                            <nav>
+                                <ul id="menu">
+                                    <li><a href="/CS5800/index">Home</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </header>
+            </div>
+        </div>
 
-    <body>
+        <div class="main">
+            <%
 
-        <div class="content" >
-            <body>
+                String firstname = request.getParameter("fname");
+                String lastname = request.getParameter("lname");
+                String gender = request.getParameter("gender");
+                String address = request.getParameter("address");
+                String zip = request.getParameter("zip");
+                String phone = request.getParameter("phone");
+                String phoneBackup = request.getParameter("phoneBackup");
+                String email = request.getParameter("email");
+                String emailBackup = request.getParameter("emailBackup");
+                String password = request.getParameter("password");
+                password = Model.Password.encrypt(password);
+                int id = -1;
+                int age = -1;
+                String value = request.getParameter("age");
+                if (value.length() != 0) {
+                    if (value.matches("^-?\\d+$")) {
+                        age = Integer.parseInt(request.getParameter("age"));
+                    }
 
-                <br>
-                <div style="width: 900px; margin-left: 40%; margin-right: auto">
+                }
+                value = request.getParameter("id");
+                if (value.length() != 0) {
+                    if (value.matches("^-?\\d+$")) {
+                        id = Integer.parseInt(request.getParameter("id"));
+                    }
 
-
-
-
-                    <%
-
-                        String firstname = request.getParameter("fname");
-                        String lastname = request.getParameter("lname");
-                        String gender = request.getParameter("gender");
-                        String address = request.getParameter("address");
-                        String zip = request.getParameter("zip");
-                        String phone = request.getParameter("phone");
-                        String phoneBackup = request.getParameter("phoneBackup");
-                        String email = request.getParameter("email");
-                        String emailBackup = request.getParameter("emailBackup");
-                        String password = request.getParameter("password");
-                        password = Model.Password.encrypt(password);
-                        int id = -1;
-                        int age = -1;
-                        String value = request.getParameter("age");
-                        if (value.length() != 0) {
-                            if (value.matches("^-?\\d+$")) {
-                                age = Integer.parseInt(request.getParameter("age"));
-                            }
-
-                        }
-                        value = request.getParameter("id");
-                        if (value.length() != 0) {
-                            if (value.matches("^-?\\d+$")) {
-                                id = Integer.parseInt(request.getParameter("id"));
-                            }
-
-                        }
+                }
 
 
-                    %>
-
-                    <h1>Account Created, thank you!</h1>
-
+            %>
+            <section id="content">
+                <article class="col2 pad_left1">
+                    <h2>Account Created, thank you!</h2>
                     <h3>please go to your email to check confirmation</h3>
-
-
-
-                    <%                        
-                        User n = new User(email, password, address, zip, firstname, lastname, 0, 0, id, age, phone, gender, 0);
+                    <%          User n = new User(email, password, address, zip, firstname, lastname, 0,id, age,-1 , phone, gender, 0);
 
                         UserDataAccess da = new UserDataAccess();
                         da.addNewUser(n);
@@ -144,68 +102,61 @@
                         MailSender send = new MailSender();
                         send.send(email, "0001");
                     %>
+                    <form id="ContactForm" name="myForm" action="validate" method="post">
+                        <div>
+                            <div class="wrapper">
+                                <div class="bg">
+                                    <input type="email" name="email" class="input" required>
+                                </div>
+                                *Email:<br />
+                            </div>
+                            <div class="wrapper">
+                                <div class="bg">
+                                    <input type="code" name="code" class="input" required>
+                                </div>
+                                *code:<br />
+                            </div>
 
-                </div>
-                    <div style="margin-left: 35%;background: rgba(255,255,255,.4);border-radius: 25px;border: 2px solid #a1a1a1;padding: 50px; width: 50%">
-            <form name="myForm" action="validate" method="post">
-                Email:<br>
-                <input type="email" name="email" style="width: 100%" required><br>
-                Confirmation Code:<br>
-                <input type="code" name="code" style="width: 100%" required><br>
-                
-                <input type="submit" value="Submit">
-            </form>
-            <!--Complete Interface Addnew.-->
+                            <input type="submit" value="Submit" class="button1">
+                        </div>
+
+                    </form>
+
+                </article>
+            </section>
 
         </div>
-
+        <div class="body2">
+            <div class="main">
+                <footer>
+                    <div class="footerlink">
+                        <p class="lf">Copyright &copy; 2010  - All Rights Reserved</p>
+                        <p class="rf">Template from<a href="http://www.templatemonster.com/">TemplateMonster</a></p>
+                        <div style="clear:both;"></div>
+                    </div>
+                </footer>
+            </div>
         </div>
-
-
-
-
-
-
-
-
-
-
-
-        <nav>
-
-            <a href="#" class="nav-toggle-btn"></a>
-
-            <ul>
-                <li><a href="/CS5800/index">Home</a></li>
-
-
-                <li><a href="/CS5800/LogIn.html">Log In</a></li>
-                <li><a href="/CS5800/JSP/SignUp.jsp">Sign Up</a></li>
-            </ul>
-
-        </nav>
-
-
-
+        <script type="text/javascript"> Cufon.now();</script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
         <script type="text/javascript">
 
-            (function () {
+        (function () {
 
-                var bodyEl = $('body'),
-                        navToggleBtn = bodyEl.find('.nav-toggle-btn');
+            var bodyEl = $('body'),
+                    navToggleBtn = bodyEl.find('.nav-toggle-btn');
 
-                navToggleBtn.on('click', function (e) {
-                    bodyEl.toggleClass('active-nav');
-                    e.preventDefault();
-                });
+            navToggleBtn.on('click', function (e) {
+                bodyEl.toggleClass('active-nav');
+                e.preventDefault();
+            });
 
 
 
-            })();
+        })();
 
 
         </script>
-
+        <!-- END PAGE SOURCE -->
     </body>
 </html>

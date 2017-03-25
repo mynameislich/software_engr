@@ -1,4 +1,4 @@
-CREATE TABLE user (email VARCHAR(50), password VARCHAR(100), address VARCHAR(500), zipcode VARCHAR(10), firstname VARCHAR(20), lastname VARCHAR(20), loggedin int, valid_id int, age int, work_id int, phone VARCHAR(15), gender VARCHAR(10), comfirm int);
+CREATE TABLE user (email VARCHAR(50), password VARCHAR(100), address VARCHAR(500), zipcode VARCHAR(10), firstname VARCHAR(20), lastname VARCHAR(20), loggedin int, valid_id int, age int, work_id int, phone VARCHAR(15), gender VARCHAR(10), confirm int);
 
 CREATE TABLE reservation (reservation_id VARCHAR(20), user_id VARCHAR(20), flight_id VARCHAR(20), bookedTime VARCHAR(100), reservation_status VARCHAR(10), ticket_price float);
 

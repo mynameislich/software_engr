@@ -1,3 +1,4 @@
+<%@page import="java.util.ArrayList"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="dao.UserDataAccess"%>
 <%@page import="Model.User"%>
@@ -35,44 +36,55 @@
                     <div class="wrapper">
                         <h1><a href="/CS5800/index" id="logo">AirLines</a><span id="slogan">Wings For You</span></h1>
                         <% boolean loggedIn = false; %>
-                        <% String email = ""; %>
 
-                        <c:forEach items="${AllUser}" var="p">
-                            
-                            <c:if test="${p.getLog() == 1}">
-                                <h1>${p.getWork()}</h1>
-                                <% loggedIn = true; %>
-                                <c:set var="email" value="${p.getId()}"/>
-                                <c:if test="${p.getWork() == -1}">
-                                    <%response.sendRedirect("/CS5800/Customer.html");%>
-                                </c:if>
-                                <c:if test="${p.getWork() == 1}">
-                                    <h2>manager</h2>
-                                    <%response.sendRedirect("/CS5800/Manager.html");%>
-                                </c:if>
-                                <c:if test="${p.getWork() == 2}">
-                                    <%response.sendRedirect("/CS5800/Admin.html");%>
-                                </c:if>
+                        <%
+                            User user = (User) request.getAttribute("theUser");
+
+                            User theOne = user;
+                            System.out.println("user is :!!!!!!!!!!!!" + user.getFirstName());
+                            if (theOne.equals(null)) {
+                            } else {
+
+                                if (user.getLog() == 1) {
+
+                                    System.out.println(theOne.getFirstName());
+                                    if (theOne.getWork() == -1) {
+                                        System.out.println("customer");
+                                        session.setAttribute("theUser", user);
+                                        response.sendRedirect("JSP/Customer.jsp");
+
+                                    } else if (theOne.getWork() == 1) {
+                                        System.out.println("manager");
+                                        session.setAttribute("theUser", user);
+                                        response.sendRedirect("JSP/Manager.jsp");
+
+                                    } else if (theOne.getWork() == 2) {
+                                        System.out.println("admin");
+                                        session.setAttribute("theUser", user);
+                                        response.sendRedirect("JSP/Admin.jsp");
+                                    }
+                                }
+                            }
+
+
+                        %>
 
 
 
+                        <div class="right">
+                            <nav>
+                                <ul id="top_nav">
+                                    <li><a href="/CS5800/Profile"><img src="images/img1.gif" alt=""></a>  ${p.getFirstName()} ${p.getLastName()} </li>
+                                </ul>
+                            </nav>
+                            <nav>
+                                <ul id="menu">
+                                    <li><a href="/CS5800/index">Home</a></li>
+                                </ul>
+                            </nav>
+                        </div>
 
 
-                                <div class="right">
-                                    <nav>
-                                        <ul id="top_nav">
-                                            <li><a href="/CS5800/Profile"><img src="images/img1.gif" alt=""></a>  ${p.getFirstName()} ${p.getLastName()} </li>
-                                        </ul>
-                                    </nav>
-                                    <nav>
-                                        <ul id="menu">
-                                            <li><a href="/CS5800/index">Home</a></li>
-                                        </ul>
-                                    </nav>
-                                </div>
-
-                            </c:if>
-                        </c:forEach>
                     </div>
                 </header>
             </div>

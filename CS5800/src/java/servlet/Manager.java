@@ -5,15 +5,10 @@
  */
 package servlet;
 
-/**
- *
- * @author LICH
- */
+import Model.User;
 import dao.UserDataAccess;
 import java.io.IOException;
 import java.io.PrintWriter;
-import Model.Password;
-import Model.User;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
@@ -25,10 +20,10 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Thang
+ * @author LICH
  */
-@WebServlet(name = "LogIn", urlPatterns = {"/LogIn"})
-public class LogIn extends HttpServlet {
+@WebServlet(name = "Manager", urlPatterns = {"/Manager"})
+public class Manager extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -42,22 +37,12 @@ public class LogIn extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, Exception {
         String email = request.getParameter("email");
-        String password = request.getParameter("password");
-        password = Model.Password.encrypt(password);
-        UserDataAccess access = new UserDataAccess();
-        User result = access.matchUser(email, password);
-        request.setAttribute("theUser", result);
-        request.setAttribute("email", email);
-        request.setAttribute("password", password);
-        if (result != null) {
-            access.editUserSession(email, 1);
-            RequestDispatcher rd = request.getRequestDispatcher("index");
-            rd.forward(request, response);
-        } else {
-            RequestDispatcher rd = request.getRequestDispatcher("wrong_pass.html");
-            rd.forward(request, response);
-        }
 
+        UserDataAccess access = new UserDataAccess();
+        User result = access.matchUserById(email);
+        request.setAttribute("theUser", result);
+        RequestDispatcher rd = request.getRequestDispatcher("JSP/Manager.jsp");
+        rd.forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -75,7 +60,7 @@ public class LogIn extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (Exception ex) {
-            Logger.getLogger(LogIn.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Manager.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -93,7 +78,7 @@ public class LogIn extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (Exception ex) {
-            Logger.getLogger(LogIn.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Manager.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

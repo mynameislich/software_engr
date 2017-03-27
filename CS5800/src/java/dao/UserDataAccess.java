@@ -34,7 +34,7 @@ public class UserDataAccess {
             ps.setString(6, n.getLastName());
             ps.setInt(7, 0);
             ps.setInt(8, n.getWork());
-            ps.setInt(10, 0);
+            ps.setInt(10, -1);
             ps.setInt(9, n.getAge());
             ps.setString(11, n.getPhone());
             ps.setString(12, n.getGender());

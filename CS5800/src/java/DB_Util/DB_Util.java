@@ -30,7 +30,7 @@ public class DB_Util {
     }
 
     //Check connections.
-    /*public static void main(String[] args) throws ClassNotFoundException, SQLException {
+   /* public static void main(String[] args) throws ClassNotFoundException, SQLException {
         getPreparedStatement("select * form User");
     }*/
 }

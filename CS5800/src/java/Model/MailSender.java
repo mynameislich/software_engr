@@ -16,10 +16,10 @@ import javax.mail.internet.*;
 public class MailSender {
 
     String host = "smtp.live.com";
-    String user = "elinmcgee2@outlook.com";
-    String pass = "Garchomp123";
-    String to = "emily-l-mcgee@uiowa.edu";
-    String from = "elinmcgee2@outlook.com";
+    String user = "zuoyuan-zhao@outlook.com";
+    String pass = "1a2a3a4a";
+    String to = "zuoyuan-zhao@uiowa.edu";
+    String from = "zuoyuan-zhao@outlook.com";
     String subject = "registration confirmation email";
     String text = "welcome to team 12 airline, this is a confirmation email.\n Here is your comfirmation code";
     Properties props = System.getProperties();
@@ -51,9 +51,5 @@ public class MailSender {
         } catch (Exception ex) {
             System.out.println(ex);
         }
-    }
-    public static void main(String[] args) throws MessagingException{
-         MailSender send = new MailSender();
-         send.send("emily-l-mcgee@uiowa.edu", "0001");
     }
 }

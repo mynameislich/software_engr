@@ -18,3 +18,22 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `matchUser`(IN pass varchar(100), IN
 BEGIN
     SELECT * from user where email = id and pass = password;
 END
+
+ create table manager(email varchar(50), username varchar(50), password varchar(100));
+ create table admin(email varchar(50), username varchar(50), password varchar(100));
+
+ 
+DELIMITER //
+ CREATE PROCEDURE matchManger(name varchar(50), pass varchar(100))
+   BEGIN
+   SELECT *  FROM manager where username = name and password = pass;
+   END //
+ DELIMITER ;
+ 
+  
+DELIMITER //
+ CREATE PROCEDURE matchAdmin(name varchar(50), pass varchar(100))
+   BEGIN
+   SELECT *  FROM admin where username = name and password = pass;
+   END //
+ DELIMITER ;

@@ -10,6 +10,7 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
+<!--two username and password-->
 <%@page import="dao.UserDataAccess"%>
 <%@page import="Model.User"%>
 <%@page import="java.text.SimpleDateFormat"%>
@@ -21,7 +22,7 @@ and open the template in the editor.
 
 <!DOCTYPE html>
 <html lang="en">
-    <head>
+    <head><!--Contains all the background "music" knowledge-->
         <title>Wings Airline</title>
         <meta charset="utf-8">
         <meta charset="utf-8">
@@ -39,11 +40,11 @@ and open the template in the editor.
         <script type="text/javascript" src="js/html5.js"></script>
         <![endif]-->
     </head>
-    <body id="page5">
+    <body id="page5"> <!--Contains all the background "music" knowledge-->
         <!-- START PAGE SOURCE -->
         <div class="body1">
             <div class="main">
-                <header>
+                <header> <!--Top of Website: location-->
                     <div class="wrapper">
                         <h1><a href="/CS5800/index" id="logo">AirLines</a><span id="slogan">Wings For You</span></h1>
                         <div class="right">
@@ -55,27 +56,31 @@ and open the template in the editor.
                         </div>
                     </div>
                 </header>
+                
+                
+                
             </div>
         </div>
 
         <div class="main">
             <section id="content">
                 <article class="col2 pad_left1">
+                    <!--Below java code -->
 
                     <%
-                       User user = (User) session.getAttribute("theUser");
+                       //User manager = (User) session.getAttribute("theUser");
                         
-                        String name = "";
+                       // String name = "";
 
-                        if (user.getLog() == 1) {
-                            name = " " + user.getFirstName() + " " + user.getLastName();
-                        }
-                        System.out.println("id : " + name);
+                       // if (manager.getLoggedIn() == 1) {
+                        //    name = " " + manager.getName();
+                       // }
+                        //System.out.println("id : " + name);
 
                     %>
 
 
-                    <h2>Dear   <%="      "+name%> <a href="/CS5800/JSP/SignUp.jsp">profile</a></h2>
+                   <!-- <h2>Dear    <a href="/CS5800/JSP/SignUp.jsp">profile</a></h2>
                     
                     <p>Love the smile, love the job</p>
                     
@@ -84,8 +89,24 @@ and open the template in the editor.
                     <a href="/CS5800/JSP/SignUp.jsp"><h3>check in for customer</h3></a>
                     
                     <a href="/CS5800/JSP/SignUp.jsp"><h3>check reservations for customer</h3></a>
-
-
+                    --> 
+   <form id="ContactForm" name="myForm" action="../ManagerLogin" method="post">
+        <div>
+          <div class="wrapper">
+            <div class="bg">
+              <input  name="userName" class="input" required>
+            </div>
+            E-mail:<br />
+          </div>
+          <div class="wrapper">
+            <div class="bg">
+             <input type="password" name="password"  class="input" required>
+            </div>
+             Password:<br />
+          </div>
+          <input type="submit" value="Submit" class="button1">
+          
+      </form>
                 </article>
             </section>
         </div>

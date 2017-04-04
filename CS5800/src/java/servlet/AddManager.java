@@ -5,6 +5,7 @@
  */
 package servlet;
 
+import Model.MailSender;
 import Model.User;
 import Model.Manager;
 import dao.ManagerDataAccess;
@@ -26,19 +27,17 @@ import javax.servlet.http.HttpServletResponse;
     //send email to user (new manager) with new username, password
 
 }*/
-/*else {
+ /*else {
   //error message - user does not exist
  }*/
-
-
 /**
  *
  * @author colleen
  */
 @WebServlet(name = "AddManager", urlPatterns = {"/AddManager"})
-public class AddManager extends HttpServlet{
-    
-        /**
+public class AddManager extends HttpServlet {
+
+    /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
      *
@@ -53,14 +52,18 @@ public class AddManager extends HttpServlet{
 
         UserDataAccess access = new UserDataAccess();
         User result = access.matchUserById(email);
-        if(result != null){
+        if (result != null) {
             String userName = result.getFirstName() + result.getLastName() + "001"; // TODO: change to random number
             String pass = email + "xxx"; // TODO : change to random number
-            Manager input = new Manager(email, userName, pass);  
+            Manager input = new Manager(email, userName, pass);
             UserDataAccess da = new UserDataAccess();
             da.assignManager(email);
             ManagerDataAccess manager_da = new ManagerDataAccess();
             manager_da.addNewManager(input);
+            MailSender send = new MailSender();
+            String code = "username = " + userName + "  \n" + "Password is:" + pass;
+
+            send.send(email, code);
         }
         //request.setAttribute("theNewManager", result);
         RequestDispatcher rd = request.getRequestDispatcher("Admin.html");
@@ -113,5 +116,5 @@ public class AddManager extends HttpServlet{
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
-    
+
 }

@@ -38,7 +38,7 @@ public class AdminDataAccess {
         }
     }
 
-    public admin matchManager(String userName, String pass) {
+    public admin matchAdmin(String userName, String pass) {
         admin n = new admin();
         try {
             String sql = "call matchAdmin(? , ?)";

@@ -25,6 +25,7 @@ public class Airplanes {
    {
         this.airplane_id = id;
    }
+
    public void setPlaneType(String plane_type)
    {
         this.plane_type = plane_type;
@@ -46,3 +47,4 @@ public class Airplanes {
    }
     
 }
+

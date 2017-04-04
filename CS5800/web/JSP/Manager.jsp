@@ -134,9 +134,6 @@ and open the template in the editor.
                     bodyEl.toggleClass('active-nav');
                     e.preventDefault();
                 });
-
-
-
             })();
 
 

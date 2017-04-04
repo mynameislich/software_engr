@@ -15,11 +15,11 @@ import javax.mail.internet.*;
 
 public class MailSender {
 
-    String host = "smtp.live.com";
-    String user = "zuoyuan-zhao@outlook.com";
-    String pass = "1a2a3a4a";
-    String to = "zuoyuan-zhao@uiowa.edu";
-    String from = "zuoyuan-zhao@outlook.com";
+    String host = "smtp.gmail.com";
+    String user = "cgannon2014@gmail.com"; ///
+    String pass = "shelfari"; //
+    String to = "colleen-gannon@uiowa.edu"; //
+    String from = "cgannon2014@gmail.com"; //
     String subject = "registration confirmation email";
     String text = "welcome to team 12 airline, this is a confirmation email.\n Here is your comfirmation code";
     Properties props = System.getProperties();
@@ -28,11 +28,11 @@ public class MailSender {
     public void send(String email, String code) throws AddressException, MessagingException {
         try {
             props.put("mail.smtp.host", host);
-            props.put("mail.smtp.port", "587");
+            props.put("mail.smtp.port", "587"); //
             props.put("mail.smtp.starttls.enable", "true");
             props.put("auth", "true");
             props.put("mail.smtp.starttls.required", "true");
-            text = text + ":" + code;
+            text = text + ": " + code;
             java.security.Security.addProvider(new com.sun.net.ssl.internal.ssl.Provider());
             Session mailSession = Session.getDefaultInstance(props, null);
             mailSession.setDebug(sessionDebug);
@@ -47,9 +47,14 @@ public class MailSender {
             transport.connect(host, user, pass);
             transport.sendMessage(msg, msg.getAllRecipients());
             transport.close();
-            System.out.println("YES!!!!");
+            System.out.println("Successful");
         } catch (Exception ex) {
             System.out.println(ex);
         }
     }
+
+    public static void main(String[] args) throws MessagingException {
+        MailSender mailSender = new MailSender();
+        mailSender.send("colleen-gannon@uiowa.edu", "0001");
+    }  
 }

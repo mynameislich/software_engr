@@ -12,7 +12,7 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import Model.manager;
+import Model.Manager;
 
 /**
  *
@@ -23,7 +23,7 @@ public class ManagerDataAccess {
     public ManagerDataAccess() {
     }
 
-    public void addNewManager(manager n) {
+    public void addNewManager(Manager n) {
 
         try {
             PreparedStatement ps = DB_Util.getPreparedStatement("insert into manager values(?,?,?)");
@@ -38,8 +38,8 @@ public class ManagerDataAccess {
         }
     }
 
-    public manager matchManager(String userName, String pass) {
-        manager n = new manager();
+    public Manager matchManager(String userName, String pass) {
+        Manager n = new Manager();
         try {
             String sql = "call matchUser(? , ?)";
             PreparedStatement ps = DB_Util.getPreparedStatement(sql);
@@ -47,7 +47,7 @@ public class ManagerDataAccess {
             ps.setString(2, pass);
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
-                n = new manager(rs.getString(1), rs.getString(2), rs.getString(3));
+                n = new Manager(rs.getString(1), rs.getString(2), rs.getString(3));
             } else {
                 return null;
             }

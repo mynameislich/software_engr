@@ -12,7 +12,7 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import Model.admin;
+import Model.Admin;
 
 /**
  *
@@ -23,7 +23,7 @@ public class AdminDataAccess {
     public AdminDataAccess() {
     }
 
-    public void addNewAdmin(admin n) {
+    public void addNewAdmin(Admin n) {
 
         try {
             PreparedStatement ps = DB_Util.getPreparedStatement("insert into admin values(?,?,?)");
@@ -38,8 +38,8 @@ public class AdminDataAccess {
         }
     }
 
-    public admin matchManager(String userName, String pass) {
-        admin n = new admin();
+    public Admin matchManager(String userName, String pass) {
+        Admin n = new Admin();
         try {
             String sql = "call matchAdmin(? , ?)";
             PreparedStatement ps = DB_Util.getPreparedStatement(sql);
@@ -47,7 +47,7 @@ public class AdminDataAccess {
             ps.setString(2, pass);
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
-                n = new admin(rs.getString(1), rs.getString(2), rs.getString(3));
+                n = new Admin(rs.getString(1), rs.getString(2), rs.getString(3));
             } else {
                 return null;
             }

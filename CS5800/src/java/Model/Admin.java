@@ -7,21 +7,26 @@ package Model;
 
 /**
  *
- * @author LICH
+ * @author Colleen
  */
-public class admin {
+public class Admin {
 
     String m_email;
     String m_user;
     String m_pass;
-
-    public admin() {
+    int loggedIn;
+    public Admin() {
     }
 
-    public admin(String email, String userName, String password) {
+    public Admin(String email, String userName, String password, int LoggedIn) {
         m_email = email;
         m_user = userName;
         m_pass = password;
+        loggedIn = LoggedIn;
+    }
+
+    public Admin(String string, String string0, String string1) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     public String getId() {
@@ -34,6 +39,10 @@ public class admin {
 
     public String getPass() {
         return m_pass;
+    }
+    public int getLoggedIn()
+    {
+        return loggedIn;
     }
 
 }

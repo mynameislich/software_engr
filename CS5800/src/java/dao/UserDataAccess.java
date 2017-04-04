@@ -33,8 +33,8 @@ public class UserDataAccess {
             ps.setString(5, n.getFirstName());
             ps.setString(6, n.getLastName());
             ps.setInt(7, 0);
-            ps.setInt(8, n.getWork());
-            ps.setInt(10, 0);
+            ps.setInt(8, n.getValid());
+            ps.setInt(10, -1);
             ps.setInt(9, n.getAge());
             ps.setString(11, n.getPhone());
             ps.setString(12, n.getGender());
@@ -85,6 +85,20 @@ public class UserDataAccess {
 
             ps.setInt(1, code);
             ps.setString(2, email);
+            ps.executeUpdate();
+
+        } catch (ClassNotFoundException | SQLException ex) {
+            Logger.getLogger(UserDataAccess.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
+    public void assignManager(String email) {
+        try {
+            String sql = "update user SET work_id = 1 where email = ?";
+            PreparedStatement ps = DB_Util.getPreparedStatement(sql);
+
+            
+            ps.setString(1, email);
             ps.executeUpdate();
 
         } catch (ClassNotFoundException | SQLException ex) {

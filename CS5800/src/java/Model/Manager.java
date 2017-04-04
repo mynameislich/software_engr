@@ -9,16 +9,16 @@ package Model;
  *
  * @author LICH
  */
-public class manager {
+public class Manager {
 
     String m_email;
     String m_user;
     String m_pass;
 
-    public manager() {
+    public Manager() {
     }
 
-    public manager(String email, String userName, String password) {
+    public Manager(String email, String userName, String password) {
         m_email = email;
         m_user = userName;
         m_pass = password;

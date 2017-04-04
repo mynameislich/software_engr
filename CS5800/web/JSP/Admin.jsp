@@ -10,8 +10,8 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
-<%@page import="dao.UserDataAccess"%>
-<%@page import="Model.User"%>
+<%@page import="dao.AdminDataAccess"%>
+<%@page import="Model.Admin"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.sql.Date"%>
 <%@page import="java.sql.*"%>
@@ -62,22 +62,22 @@ and open the template in the editor.
                 <article class="col2 pad_left1">
 
                     <%
-                        User user = (User) session.getAttribute("theUser");
+                        //Admin admin = (Admin) session.getAttribute("theUser");
 
                         
-                        String name = "";
+                        //String name = "";
 
-                        if (user.getLog() == 1) {
-                            name = " " + user.getFirstName() + " " + user.getLastName();
-                        }
-                        System.out.println("id : " + name);
+                        //if (admin.getLoggedIn() == 1) {
+                         //   name = " " + admin.getName();
+                        //}
+                        //System.out.println("id : " + name);
 
 
 
                     %>
 
 
-                    <h2>Dear   <%="      "+name%> <a href="/CS5800/JSP/SignUp.jsp">profile</a></h2>
+                  <!--  <h2>Dear   <a href="/CS5800/JSP/SignUp.jsp">profile</a></h2>
                     
                     <p>Stay hungry, Stay foolish</p>
                     
@@ -86,8 +86,8 @@ and open the template in the editor.
                     <a href="/CS5800/JSP/SignUp.jsp"><h3>add flight</h3></a>
                     
                     <a href="/CS5800/JSP/SignUp.jsp"><h3>add aircraft</h3></a>
-
-                    <a href="/CS5800/JSP/SignUp.jsp"><h3>assign manager</h3></a>
+-->
+                    <a href="/CS5800/JSP/AddManager.jsp"><h3>assign manager</h3></a>
                 </article>
             </section>
         </div>

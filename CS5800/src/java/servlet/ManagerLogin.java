@@ -13,7 +13,7 @@ import dao.ManagerDataAccess;
 import java.io.IOException;
 import java.io.PrintWriter;
 import Model.Password;
-import Model.manager;
+import Model.Manager;
 
 
 import java.util.logging.Level;
@@ -48,7 +48,7 @@ public class ManagerLogin extends HttpServlet {
         String password = request.getParameter("password");
         //password = Model.Password.encrypt(password);
         ManagerDataAccess access = new ManagerDataAccess();
-        manager result =  access.matchManager(userName, password);
+        Manager result =  access.matchManager(userName, password);
         request.setAttribute("theUser", result);
         request.setAttribute("userName", userName);
         request.setAttribute("password", password);

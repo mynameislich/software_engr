@@ -6,7 +6,7 @@ CREATE TABLE flight (flight_id VARCHAR(20), Time VARCHAR(100), origin VARCHAR(20
 
 CREATE TABLE bank_acc (acc_id VARCHAR(20), acc_holder_name VARCHAR(100), price float);
 
-CREATE TABLE airplane (airplane_id VARCHAR(20), plane_type VARCHAR(100), description VARCHAR(200);
+CREATE TABLE airplane (airplane_id VARCHAR(20), plane_type VARCHAR(100), description VARCHAR(200));
 
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `matchUserById`(IN id varchar(50))

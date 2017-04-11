@@ -75,7 +75,12 @@
             </div>
             *AirCraft Type:<br />
           </div>
-          
+          <div class="wrapper">
+            <div class="bg">
+              <input type="text" name="Description" class="input" required>
+            </div>
+            *Description:<br />
+          </div>
           <input type="submit" value="Submit" class="button1">
           
       </form>

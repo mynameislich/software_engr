@@ -11,21 +11,31 @@ package Model;
  */
 public class Airplane_type {
 
-    int m_id;
-    int m_seat_num;
-    float m_speed;
+    int m_id = 0;
+    int m_seat_num = 0;
+    float m_speed = 0;
+    String m_description = "";
 
     public Airplane_type() {
     }
 
-    public Airplane_type(int id, int seat_num, float speed) {
+    public Airplane_type(int id, int seat_num, float speed, String description) {
         m_id = id;
         m_seat_num = seat_num;
         m_speed = speed;
+        m_description = description;
     }
 
     public int getId() {
         return m_id;
+    }
+
+    public String getDesc() {
+        return m_description;
+    }
+
+    public void setDesc(String input) {
+        m_description = input;
     }
 
     public int getmSeatNum() {

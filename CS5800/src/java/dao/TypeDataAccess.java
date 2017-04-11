@@ -45,7 +45,7 @@ public static List<Airplane_type> getAllType() {
         try {
             ResultSet rs = DB_Util.getPreparedStatement("select * from airplane_type").executeQuery();
             while (rs.next()) {
-                Airplane_type n = new Airplane_type(rs.getInt(1), rs.getInt(2), rs.getFloat(3));
+                Airplane_type n = new Airplane_type(rs.getInt(1), rs.getInt(2), rs.getFloat(3), rs.getString(4));
                 ls.add(n);
 
             }

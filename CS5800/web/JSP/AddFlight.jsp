@@ -68,6 +68,7 @@
               <input type="text" name="flightID" class="input" required>
             </div>
             *Flight ID:<br />
+            
           </div>
           <div class="wrapper">
             <div class="bg">

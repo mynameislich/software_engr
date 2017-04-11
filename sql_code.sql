@@ -38,4 +38,4 @@ DELIMITER //
    END //
  DELIMITER ;
  
-create table airplane_type(id int, seat_num int, spead float);
+create table airplane_type(id int, seat_num int, speed float);

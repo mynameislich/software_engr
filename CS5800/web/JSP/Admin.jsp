@@ -4,6 +4,7 @@
     Author     : LICH
 --%>
 
+<%@page import="Model.User"%>
 <%@page import="java.util.ArrayList"%>
 <!--
 To change this license header, choose License Headers in Project Properties.
@@ -24,15 +25,15 @@ and open the template in the editor.
     <head>
         <title>Wings Airline</title>
         <meta charset="utf-8">
-        <link rel="stylesheet" href="../css/reset.css" type="text/css" media="all">
-        <link rel="stylesheet" href="../css/layout.css" type="text/css" media="all">
-        <link rel="stylesheet" href="../css/style.css" type="text/css" media="all">
-        <script type="text/javascript" src="../js/jquery-1.4.2.js" ></script>
-        <script type="text/javascript" src="../js/cufon-yui.js"></script>
-        <script type="text/javascript" src="../js/cufon-replace.js"></script>
-        <script type="text/javascript" src="../js/Myriad_Pro_italic_600.font.js"></script>
-        <script type="text/javascript" src="../js/Myriad_Pro_italic_400.font.js"></script>
-        <script type="text/javascript" src="../js/Myriad_Pro_400.font.js"></script>
+        <link rel="stylesheet" href="C:/Users/LICH/Documents/NetBeansProjects/software_engr/CS5800/web/css/reset.css" type="text/css" media="all">
+        <link rel="stylesheet" href="C:/Users/LICH/Documents/NetBeansProjects/software_engr/CS5800/web/css/layout.css" type="text/css" media="all">
+        <link rel="stylesheet" href="C:/Users/LICH/Documents/NetBeansProjects/software_engr/CS5800/web/css/style.css" type="text/css" media="all">
+        <script type="text/javascript" src="C:/Users/LICH/Documents/NetBeansProjects/software_engr/CS5800/web/js/jquery-1.4.2.js" ></script>
+        <script type="text/javascript" src="C:/Users/LICH/Documents/NetBeansProjects/software_engr/CS5800/web/js/cufon-yui.js"></script>
+        <script type="text/javascript" src="C:/Users/LICH/Documents/NetBeansProjects/software_engr/CS5800/web/js/cufon-replace.js"></script>
+        <script type="text/javascript" src="C:/Users/LICH/Documents/NetBeansProjects/software_engr/CS5800/web/js/Myriad_Pro_italic_600.font.js"></script>
+        <script type="text/javascript" src="C:/Users/LICH/Documents/NetBeansProjects/software_engr/CS5800/web/js/Myriad_Pro_italic_400.font.js"></script>
+        <script type="text/javascript" src="C:/Users/LICH/Documents/NetBeansProjects/software_engr/CS5800/web/js/Myriad_Pro_400.font.js"></script>
         <!--[if lt IE 9]>
         <script type="text/javascript" src="js/ie6_script_other.js"></script>
         <script type="text/javascript" src="js/html5.js"></script>
@@ -62,14 +63,14 @@ and open the template in the editor.
                 <article class="col2 pad_left1">
 
                     <%
-                        //Admin admin = (Admin) session.getAttribute("theUser");
+                        User admin = (User) session.getAttribute("theUser");
 
                         
-                        //String name = "";
+                        String name = "";
 
-                        //if (admin.getLoggedIn() == 1) {
-                         //   name = " " + admin.getName();
-                        //}
+                        if (admin.getLog() == 1) {
+                           name = admin.getFirstName()+ " " + admin.getLastName();
+                        }
                         //System.out.println("id : " + name);
 
 
@@ -77,16 +78,16 @@ and open the template in the editor.
                     %>
 
 
-                  <!--  <h2>Dear   <a href="/CS5800/JSP/SignUp.jsp">profile</a></h2>
+                  <h2>Dear   <%=  name%><a href="/CS5800/JSP/SignUp.jsp">profile</a></h2>
                     
                     <p>Stay hungry, Stay foolish</p>
                     
                     <a href="/CS5800/JSP/SignUp.jsp"><h3>check flight</h3></a>
-                    
+                    <a href="/CS5800/JSP/AddType.jsp"><h3>add airplane type</h3></a>
                     <a href="/CS5800/JSP/SignUp.jsp"><h3>add flight</h3></a>
                     
                     <a href="/CS5800/JSP/SignUp.jsp"><h3>add aircraft</h3></a>
--->
+
                     <a href="/CS5800/JSP/AddManager.jsp"><h3>assign manager</h3></a>
                 </article>
             </section>

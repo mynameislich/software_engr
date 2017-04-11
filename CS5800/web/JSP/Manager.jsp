@@ -80,7 +80,7 @@ and open the template in the editor.
                     %>
 
 
-                   <!-- <h2>Dear    <a href="/CS5800/JSP/SignUp.jsp">profile</a></h2>
+                   <h2>Dear    <a href="/CS5800/JSP/SignUp.jsp">profile</a></h2>
                     
                     <p>Love the smile, love the job</p>
                     
@@ -89,7 +89,7 @@ and open the template in the editor.
                     <a href="/CS5800/JSP/SignUp.jsp"><h3>check in for customer</h3></a>
                     
                     <a href="/CS5800/JSP/SignUp.jsp"><h3>check reservations for customer</h3></a>
-                    --> 
+                    
                     <form id="ContactForm" name="myForm" action="../ManagerLogin" method="post">
                         <div>
                             <div class="wrapper">

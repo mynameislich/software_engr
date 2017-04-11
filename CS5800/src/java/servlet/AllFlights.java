@@ -5,9 +5,15 @@
  */
 package servlet;
 
-import Model.Airplanes;
-import dao.AirplaneDataAccess;
+/**
+ *
+ * @author LICH
+ */
+import Model.User;
+import dao.FlightDataAccess;
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
@@ -19,10 +25,10 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author LICH
+ * @author Thang
  */
-@WebServlet(name = "AddAirplane", urlPatterns = {"/AddAirplane"})
-public class AddAirplane extends HttpServlet {
+@WebServlet(name = "AllFlights", urlPatterns = {"/AllFlights"})
+public class AllFlights extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,36 +40,32 @@ public class AddAirplane extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+            throws ServletException, IOException, Exception {
         
-        String airCraftId = request.getParameter("AirID");
-        String airCraftType = request.getParameter("AirType");
-        String desc = request.getParameter("Description");
-        AirplaneDataAccess airData = new AirplaneDataAccess();
-        Airplanes plane = new Airplanes(airCraftId, airCraftType, desc);
-        airData.addNew(plane);
-        RequestDispatcher rd = request.getRequestDispatcher("JSP/Admin.jsp");
+        FlightDataAccess access = new FlightDataAccess();
+        List result = access.getAll();
+        request.setAttribute("allFlights", result);
+        
+        RequestDispatcher rd = request.getRequestDispatcher("/JSP/CheckFlight.jsp");
         rd.forward(request, response);
     }
 
-// <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-/**
- * Handles the HTTP <code>GET</code> method.
- *
- * @param request servlet request
- * @param response servlet response
- * @throws ServletException if a servlet-specific error occurs
- * @throws IOException if an I/O error occurs
- */
-@Override
-        protected void doGet(HttpServletRequest request, HttpServletResponse response)
+    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+    /**
+     * Handles the HTTP <code>GET</code> method.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
             processRequest(request, response);
-        
-
-} catch (Exception ex) {
-            Logger.getLogger(Admin.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (Exception ex) {
+            Logger.getLogger(index.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -76,14 +78,12 @@ public class AddAirplane extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     @Override
-        protected void doPost(HttpServletRequest request, HttpServletResponse response)
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
             processRequest(request, response);
-        
-
-} catch (Exception ex) {
-            Logger.getLogger(Admin.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (Exception ex) {
+            Logger.getLogger(index.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -93,7 +93,7 @@ public class AddAirplane extends HttpServlet {
      * @return a String containing servlet description
      */
     @Override
-        public String getServletInfo() {
+    public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
 

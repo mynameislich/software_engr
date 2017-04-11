@@ -36,7 +36,7 @@ public class FlightDataAccess {
             Logger.getLogger(UserDataAccess.class.getName()).log(Level.SEVERE, null, ex);
         }
      }
-      public static List<Flight> getAllType() {
+      public static List<Flight> getAll() {
         List<Flight> ls = new ArrayList<>();
 
         try {

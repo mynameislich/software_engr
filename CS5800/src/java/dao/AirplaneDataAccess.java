@@ -34,11 +34,11 @@ public class AirplaneDataAccess {
             Logger.getLogger(UserDataAccess.class.getName()).log(Level.SEVERE, null, ex);
         }
      }
-      public static List<Airplanes> getAllType() {
+      public static List<Airplanes> getAll() {
         List<Airplanes> ls = new ArrayList<>();
 
         try {
-            ResultSet rs = DB_Util.getPreparedStatement("select * from flight").executeQuery();
+            ResultSet rs = DB_Util.getPreparedStatement("select * from airplane").executeQuery();
             while (rs.next()) {
                 Airplanes n = new Airplanes(rs.getString(1), rs.getString(2), rs.getString(3));
                 ls.add(n);

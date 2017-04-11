@@ -61,7 +61,7 @@
                                     } else if (theOne.getWork() == 2) {
                                         System.out.println("admin");
                                         session.setAttribute("theUser", user);
-                                        response.sendRedirect("JSP/AdminLogin.jsp");
+                                        response.sendRedirect("JSP/Admin.jsp");
                                     }
                                 }
                             }

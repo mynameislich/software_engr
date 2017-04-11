@@ -66,7 +66,7 @@ public class AddManager extends HttpServlet {
             send.send(email, code);
         }
         //request.setAttribute("theNewManager", result);
-        RequestDispatcher rd = request.getRequestDispatcher("Admin.html");
+        RequestDispatcher rd = request.getRequestDispatcher("JSP/Admin.jsp");
         rd.forward(request, response);
     }
 

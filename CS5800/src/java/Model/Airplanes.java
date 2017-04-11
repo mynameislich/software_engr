@@ -7,7 +7,7 @@ package Model;
 
 /**
  *
- * @author Emily
+ * @author Emily, LICH
  */
 public class Airplanes {
    String airplane_id;
@@ -35,16 +35,20 @@ public class Airplanes {
        this.description = description;
    }
    
-   private class PlaneDescription{
-        int seatNumber;
-        
-       public PlaneDescription()
-       {
-       
-       
-       }
-   
+    public String getAirplaneID()
+   {
+       return this.airplane_id;
    }
+
+   public String getPlaneType()
+   {
+        return this.plane_type;
+   }
+   public String getDescription()
+   {
+       return this.description;
+   }
+   
     
 }
 

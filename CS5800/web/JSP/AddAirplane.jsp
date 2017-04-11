@@ -60,10 +60,38 @@
         </div>
     </div>
 
-    <div class="main">
-        <section id="content">
-            <article class="col2 pad_left1">
-                <h2>Please add airplane to database </h2> <!-- Stopped here -->
+<div class="main">
+  <section id="content">
+    <article class="col2 pad_left1">
+        <h2>Please add airplane to database </h2> <!-- Stopped here -->
+      
+      <form id="ContactForm" name="myForm" action="/CS5800/AddAirplane" method="post">
+        <div>
+          <div class="wrapper">
+            <div class="bg">
+              <input type="text" name="AirID" class="input" required>
+            </div>
+            *AirCraft ID:<br /> <!--display on screen = *Variable-->
+          </div>
+          <div class="wrapper">
+            <div class="bg">
+              <input type="text" name="AirType" class="input" required>
+            </div>
+            *AirCraft Type:<br />
+          </div>
+          <div class="wrapper">
+            <div class="bg">
+              <input type="text" name="Description" class="input" required>
+            </div>
+            *Description:<br />
+          </div>
+          <input type="submit" value="Submit" class="button1">
+          
+      </form>
+      
+    </article>
+  </section>
+   <script>
 
                 <form id="ContactForm" name="myForm" action="/CS5800/AddAirplane" method="post">
                     <div>

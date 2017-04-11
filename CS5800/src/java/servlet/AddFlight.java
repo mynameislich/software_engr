@@ -4,10 +4,10 @@
  * and open the template in the editor.
  */
 package servlet;
-  
 
-import Model.Airplanes;
-import dao.AirplaneDataAccess;
+
+import Model.Flight;
+import dao.FlightDataAccess;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -20,10 +20,10 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author LICH
+ * @author Emily
  */
-@WebServlet(name = "AddAirplane", urlPatterns = {"/AddAirplane"})
-public class AddAirplane extends HttpServlet {
+@WebServlet(name = "AddFlight", urlPatterns = {"/AddFlight"})
+public class AddFlight extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -36,36 +36,34 @@ public class AddAirplane extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-        String airCraftId = request.getParameter("AirID");
-        String airCraftType = request.getParameter("AirType");
-        String desc = request.getParameter("Description");
-        AirplaneDataAccess airData = new AirplaneDataAccess();
-        Airplanes plane = new Airplanes(airCraftId, airCraftType, desc);
+        String flightId = request.getParameter("flightID");
+        String time = request.getParameter("time");
+        String origin = request.getParameter("origin");
+        //String origin = request.getParameter("origin");
+        String dest = request.getParameter("dest");
+        String plane_id = request.getParameter("AirplaneID");
+        double price = Double.valueOf(request.getParameter("price"));
+
+        FlightDataAccess airData = new FlightDataAccess();
+        Flight plane = new Flight(flightId, time, origin, dest, plane_id, price);
         airData.addNew(plane);
         RequestDispatcher rd = request.getRequestDispatcher("JSP/Admin.jsp");
         rd.forward(request, response);
     }
 
-// <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-/**
- * Handles the HTTP <code>GET</code> method.
- *
- * @param request servlet request
- * @param response servlet response
- * @throws ServletException if a servlet-specific error occurs
- * @throws IOException if an I/O error occurs
- */
-@Override
-        protected void doGet(HttpServletRequest request, HttpServletResponse response)
+    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+    /**
+     * Handles the HTTP <code>GET</code> method.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try {
-            processRequest(request, response);
-        
-
-} catch (Exception ex) {
-            Logger.getLogger(Admin.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        processRequest(request, response);
     }
 
     /**
@@ -77,15 +75,9 @@ public class AddAirplane extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     @Override
-        protected void doPost(HttpServletRequest request, HttpServletResponse response)
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try {
-            processRequest(request, response);
-        
-
-} catch (Exception ex) {
-            Logger.getLogger(Admin.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        processRequest(request, response);
     }
 
     /**
@@ -94,7 +86,7 @@ public class AddAirplane extends HttpServlet {
      * @return a String containing servlet description
      */
     @Override
-        public String getServletInfo() {
+    public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
 

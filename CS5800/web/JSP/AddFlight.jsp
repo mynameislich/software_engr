@@ -61,78 +61,48 @@
     <article class="col2 pad_left1">
         <h2>Please Set Flight </h2> <!-- Stopped here -->
       
-      <form id="ContactForm" name="myForm" action="/CS5800/NewUser"  method="post">
+      <form id="ContactForm" name="myForm" action="/CS5800/AddFlight"  method="post">
         <div>
           <div class="wrapper">
             <div class="bg">
-              <input type="text" name="fname" class="input" required>
+              <input type="text" name="flightID" class="input" required>
             </div>
-            *First name:<br />
+            *Flight ID:<br />
           </div>
           <div class="wrapper">
             <div class="bg">
-              <input type="text" name="lname" class="input" required>
+              <input type="text" name="time" class="input" required>
             </div>
-            *Last name:<br />
+            *Time:<br />
           </div>
           <div class="wrapper">
             <div class="bg">
-              <input type="text" name="age" class="input" required>
+              <input type="text" name="origin" class="input" required>
             </div>
-            *Age:<br />
+            *Origin:<br />
           </div>
           <div class="wrapper">
             <div class="bg">
-              <input type="text" name="id" class="input" required>
+              <input type="text" name="dest" class="input" required>
             </div>
-            *valid id:<br />
+            *Destination:<br />
           </div>
           <div class="wrapper">
             <div class="bg">
-              <select name="gender"  class="input" required>
-                        <option value="Male">Male</option>
-                        <option value="Female">Female</option>
+              <select name="AirplaneID"  class="input" required>
+                        <option value="0001A">0001A</option>
+                        <option value="0001B">0001B</option>
                     </select><br>
             </div>
-            *Gender: <br />
+            *Airplane ID: <br />
           </div>
+            <p>  </p>
           <div class="wrapper">
             <div class="bg">
-              <input type="text" name="address" class="input" required>
+              <input type="text" name="price" class="input" required>
             </div>
-            *Address (must have # and street):<br /><br />
-          </div>
-          <div class="wrapper">
-            <div class="bg">
-              <input type="text" name="zip" class="input" required>
-            </div>
-            *Zip: (5 digits) <br />
-          </div>
-          <div class="wrapper">
-            <div class="bg">
-              <input type="text" name="phone" class="input" required>
-            </div>
-             *Phone: (10 digits)<br />
-          </div>
-          <div class="wrapper">
-            <div class="bg">
-              <input type="text" name="email" class="input" required>
-            </div>
-             *Email:<br />
-          </div>
-          <div class="wrapper">
-            <div class="bg">
-             <input type="password" name="password"  class="input" required>
-            </div>
-             *Password:<br />
-             (8 digits, at least one: special char, digit, lowercase, uppercase)<br>
-          </div>
-          <div class="wrapper">
-            <div class="bg">
-             <input type="password" name="passwordConfirmation"  class="input" required>
-            </div>
-             *Password Confirmation:<br />
-             (match Password)<br>
+              
+            *Price<br /><br />
           </div>
           <input type="submit" value="Submit" class="button1">
           

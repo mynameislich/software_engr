@@ -19,7 +19,7 @@
         <title>Login JSP Page</title>
     </head>
     <body>
-        <h1>Doesn't matter</h1>
+        <h1>Welcome to Wings for You Airline</h1>
         
         <table cellpadding="10">
             <tr>

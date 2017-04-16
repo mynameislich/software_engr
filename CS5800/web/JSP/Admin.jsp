@@ -85,9 +85,8 @@ and open the template in the editor.
                     <a href="/CS5800/AllFlights"><h3>check flight</h3></a>
                     <a href="/CS5800/JSP/AddType.jsp"><h3>add airplane type</h3></a>
                     <a href="/CS5800/JSP/AddFlight.jsp"><h3>add flight</h3></a>
-                    
+                    <a href="/CS5800/JSP/AddAirports.jsp"><h3>add Airport</h3></a>
                     <a href="/CS5800/JSP/AddAirplane.jsp"><h3>add aircraft</h3></a>
-
                     <a href="/CS5800/JSP/AddManager.jsp"><h3>assign manager</h3></a>
                 </article>
             </section>

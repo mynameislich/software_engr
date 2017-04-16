@@ -4,11 +4,9 @@
     Author     : Emily
 --%>
 
+
 <%@page import="dao.TypeDataAccess"%>
-<%@page import="java.util.ArrayList"%>
 <%@page import="Model.Airplane_type"%>
-<%@page import="dao.AdminDataAccess"%>
-<%@page import="Model.Admin"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.sql.Date"%>
 <%@page import="java.sql.*"%>

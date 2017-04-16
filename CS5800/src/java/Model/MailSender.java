@@ -15,11 +15,11 @@ import javax.mail.internet.*;
 
 public class MailSender {
 
-    String host = "smtp.gmail.com";
-    String user = "cgannon2014@gmail.com"; ///
-    String pass = "shelfari"; //
-    String to = "colleen-gannon@uiowa.edu"; //
-    String from = "cgannon2014@gmail.com"; //
+    String host = "smtp.outlook.com";
+    String user = "zuoyuan-zhao@outlook.com"; ///
+    String pass = "Seeyahaha16"; //
+    String to = "zuoyuan-zhao@uiowa.edu"; //
+    String from = "zuoyuan-zhao@outlook.com"; //
     String subject = "registration confirmation email";
     String text = "welcome to team 12 airline, this is a confirmation email.\n Here is your comfirmation code";
     Properties props = System.getProperties();
@@ -53,8 +53,8 @@ public class MailSender {
         }
     }
 
-    public static void main(String[] args) throws MessagingException {
+   /* public static void main(String[] args) throws MessagingException {
         MailSender mailSender = new MailSender();
-        mailSender.send("colleen-gannon@uiowa.edu", "0001");
-    }  
+        mailSender.send("zuoyuan-zhao@uiowa.edu", "0001");
+    }  */
 }

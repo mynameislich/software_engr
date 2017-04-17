@@ -39,3 +39,4 @@ DELIMITER //
  DELIMITER ;
  
 create table airplane_type(id int, seat_num int, speed float);
+ create table airports(id int, name varchar(200), abbr varchar(10), location varchar(200));

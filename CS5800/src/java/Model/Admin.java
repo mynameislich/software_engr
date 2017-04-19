@@ -10,7 +10,6 @@ package Model;
  * @author Colleen
  */
 public class Admin {
-
     String m_email;
     String m_user;
     String m_pass;

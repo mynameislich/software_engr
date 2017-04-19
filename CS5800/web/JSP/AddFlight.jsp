@@ -75,9 +75,15 @@
                         </div>
                         <div class="wrapper">
                             <div class="bg">
-                                <input type="text" name="time" class="input" required>
+                                <input type="date" name="arrivingTime" class="input" required>
                             </div>
-                            *Time:<br />
+                            *Arriving Time:<br />
+                        </div>
+                                                <div class="wrapper">
+                            <div class="bg">
+                                <input type="date" name="departingTime" class="input" required>
+                            </div>
+                            *Departing Time:<br />
                         </div>
                         <div class="wrapper">
                             <div class="bg">
@@ -146,6 +152,14 @@
 
                             *Price<br /><br />
                         </div>
+                    <div class="wrapper">
+                            <div class="bg">
+                                <input type="text" name="frequency" class="input" required>
+                            </div>
+
+                            *Frequency<br /><br />
+                        </div>
+ 
                         <input type="submit" value="Submit" class="button1">
 
                         </form>

@@ -15,21 +15,35 @@ public class Airplane_type {
     int m_seat_num = 0;
     float m_speed = 0;
     String m_description = "";
-
+    int m_eco_num = 0;
+    int m_bus_num = 0;
+    int m_first_num = 0;
+    
     public Airplane_type() {
     }
 
-    public Airplane_type(int id, int seat_num, float speed, String description) {
+    public Airplane_type(int id, int seat_num, float speed, String description, int eco_num, int bus_num, int first_num) {
         m_id = id;
         m_seat_num = seat_num;
         m_speed = speed;
         m_description = description;
+        m_eco_num = eco_num;
+        m_bus_num = bus_num;
+        m_first_num = first_num;
     }
 
     public int getId() {
         return m_id;
     }
-
+    public int getEco(){
+        return m_eco_num;
+    }
+    public int getBus(){
+        return m_bus_num;
+    }
+    public int getFirst(){
+        return m_first_num;
+    }
     public String getDesc() {
         return m_description;
     }

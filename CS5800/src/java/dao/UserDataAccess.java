@@ -21,7 +21,10 @@ import Model.User;
  * @author Zuoyuan
  */
 public class UserDataAccess {
-    public UserDataAccess(){}
+
+    public UserDataAccess() {
+    }
+
     public void addNewUser(User n) {
 
         try {
@@ -92,12 +95,12 @@ public class UserDataAccess {
         }
 
     }
+
     public void assignManager(String email) {
         try {
             String sql = "update user SET work_id = 1 where email = ?";
             PreparedStatement ps = DB_Util.getPreparedStatement(sql);
 
-            
             ps.setString(1, email);
             ps.executeUpdate();
 
@@ -117,8 +120,8 @@ public class UserDataAccess {
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
                 n = new User(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getInt(7), rs.getInt(8), rs.getInt(9), rs.getInt(10), rs.getString(11), rs.getString(12), rs.getInt(13));
-                
-            }else {
+
+            } else {
                 return null;
             }
         } catch (ClassNotFoundException | SQLException ex) {
@@ -126,18 +129,29 @@ public class UserDataAccess {
         }
         return n;
     }
+
+    public void deleteUser(String email) {
+        try {
+            String sql = "delete from user where email = "+email;
+            PreparedStatement ps = DB_Util.getPreparedStatement(sql);
+             ps.executeUpdate();
+        } catch (ClassNotFoundException | SQLException ex) {
+            Logger.getLogger(UserDataAccess.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
     public User matchUserById(String userName) {
         User n = new User();
         try {
             String sql = "call matchUserById(?)";
             PreparedStatement ps = DB_Util.getPreparedStatement(sql);
-            
+
             ps.setString(1, userName);
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
                 n = new User(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getInt(7), rs.getInt(8), rs.getInt(9), rs.getInt(10), rs.getString(11), rs.getString(12), rs.getInt(13));
-                
-            }else {
+
+            } else {
                 return null;
             }
         } catch (ClassNotFoundException | SQLException ex) {

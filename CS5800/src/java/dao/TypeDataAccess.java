@@ -28,11 +28,15 @@ public class TypeDataAccess {
     public void addNewType(Airplane_type n) {
 
         try {
-            PreparedStatement ps = DB_Util.getPreparedStatement("insert into airplane_type values(?,?,?,?)");
+            PreparedStatement ps = DB_Util.getPreparedStatement("insert into airplane_type values(?,?,?,?,?,?,?)");
             ps.setInt(1, n.getId());
             ps.setInt(2, n.getmSeatNum());
             ps.setFloat(3, n.getSpeed());
             ps.setString(4, n.getDesc());
+            ps.setInt(5, n.getEco());
+            ps.setInt(6, n.getBus());
+            ps.setInt(7, n.getFirst());
+
             ps.executeUpdate();
 
         } catch (ClassNotFoundException | SQLException ex) {
@@ -46,7 +50,7 @@ public class TypeDataAccess {
         try {
             ResultSet rs = DB_Util.getPreparedStatement("select * from airplane_type").executeQuery();
             while (rs.next()) {
-                Airplane_type n = new Airplane_type(rs.getInt(1), rs.getInt(2), rs.getFloat(3), rs.getString(4));
+                Airplane_type n = new Airplane_type(rs.getInt(1), rs.getInt(2), rs.getFloat(3), rs.getString(4), rs.getInt(5), rs.getInt(6), rs.getInt(7));
                 ls.add(n);
 
             }

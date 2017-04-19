@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import Model.PathNode;
 import dao.FlightDataAccess;
+import java.text.ParseException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -21,7 +22,7 @@ public class PathFinder {
 
     ArrayList<PathNode> m_allPath = new ArrayList();
 
-    public PathFinder(String time) {
+    public PathFinder(String time) throws ParseException {
         ArrayList<PathNode> allPath = new ArrayList();
         FlightDataAccess da = new FlightDataAccess();
         List airports = da.getAll();

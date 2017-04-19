@@ -18,6 +18,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -50,7 +51,7 @@ public class Search extends HttpServlet {
         String dest_abbr = request.getParameter("destination");
         String leavingTime = request.getParameter("departTime");
         String returningTime = request.getParameter("returnTime");
-        PathFinder pf = new PathFinder("");
+        PathFinder pf = new PathFinder(new Date());
         List<PathNode> result;
         if (returningTime == "") {
 

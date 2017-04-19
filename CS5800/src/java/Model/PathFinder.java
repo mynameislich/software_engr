@@ -9,7 +9,9 @@ import java.util.ArrayList;
 import java.util.List;
 import Model.PathNode;
 import dao.FlightDataAccess;
+import java.text.DateFormat;
 import java.text.ParseException;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -22,16 +24,16 @@ public class PathFinder {
 
     ArrayList<PathNode> m_allPath = new ArrayList();
 
-    public PathFinder(String time) throws ParseException {
+    public PathFinder(Date time) throws ParseException {
         ArrayList<PathNode> allPath = new ArrayList();
         FlightDataAccess da = new FlightDataAccess();
         List airports = da.getAll();
         for (Object each : airports) {
             Flight temp = (Flight) each;
-            if (temp.getTime().equals(time)) {
+            if (temp.getDepartingTime().equals(time)) {
                 allPath.add(new PathNode(temp.origin, temp.destination));
             } else {
-                System.out.println(temp.getTime());
+                System.out.println(temp.getDepartingTime());
             }
         }
         Map<String, List<String>> formatting = new HashMap();
@@ -59,7 +61,7 @@ public class PathFinder {
         return this.m_allPath;
     }
 
-    public List Caculator2way(String from, String to, String departTime, String returnTime) {
+    public List Caculator2way(String from, String to, String departTime, String returnTime) throws ParseException {
         List result;
         result = Caculator1way(from, to, departTime);
         // List temp =Caculator1way(to, from, returnTime);
@@ -67,9 +69,10 @@ public class PathFinder {
         return result;
     }
 
-    public List Caculator1way(String from, String to, String departTime) {
+    public List Caculator1way(String from, String to, String departTime) throws ParseException {
         List result = new ArrayList();
-        PathFinder PF = new PathFinder(departTime);
+        DateFormat format = null;
+        PathFinder PF = new PathFinder(format.parse(departTime));
         List<PathNode> list = PF.getList();
 
         for (int i = 0; i < PF.m_allPath.size(); i++) {
@@ -126,8 +129,8 @@ public class PathFinder {
         return result;
     }
 
-    public static void main(String[] args) {
-        PathFinder PF = new PathFinder("2");
+    public static void main(String[] args) throws ParseException {
+        PathFinder PF = new PathFinder(new Date());
         List<PathNode> list = PF.getList();
         List<PathNode> result = new ArrayList();
         HashMap input = new HashMap();

@@ -9,6 +9,9 @@ package servlet;
 import Model.Flight;
 import dao.FlightDataAccess;
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
@@ -35,17 +38,20 @@ public class AddFlight extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+            throws ServletException, IOException, ParseException {
+        DateFormat formatter = null;
         String flightId = request.getParameter("flightID");
-        String time = request.getParameter("time");
+        String timeStringArrival = request.getParameter("arrivingTime");
+        Date timeArrival = (Date) formatter.parse(timeStringArrival);
+        String timeStringDepart = request.getParameter("departingTime");
+        Date timeDepart = (Date) formatter.parse(timeStringDepart);
         String origin = request.getParameter("origin");
-        //String origin = request.getParameter("origin");
         String dest = request.getParameter("dest");
         String plane_id = request.getParameter("AirplaneID");
         double price = Double.valueOf(request.getParameter("price"));
-
+        String freq = request.getParameter("frequency");
         FlightDataAccess airData = new FlightDataAccess();
-        Flight plane = new Flight(flightId, time, origin, dest, plane_id, price);
+        Flight plane = new Flight(flightId, timeArrival,timeDepart, origin, dest, plane_id, price,freq);
         airData.addNew(plane);
         RequestDispatcher rd = request.getRequestDispatcher("JSP/Admin.jsp");
         rd.forward(request, response);
@@ -63,7 +69,11 @@ public class AddFlight extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            processRequest(request, response);
+        } catch (ParseException ex) {
+            Logger.getLogger(AddFlight.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -77,7 +87,11 @@ public class AddFlight extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            processRequest(request, response);
+        } catch (ParseException ex) {
+            Logger.getLogger(AddFlight.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**

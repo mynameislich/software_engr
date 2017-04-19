@@ -2,8 +2,8 @@ CREATE TABLE user (email VARCHAR(50), password VARCHAR(100), address VARCHAR(500
 
 CREATE TABLE reservation (reservation_id VARCHAR(20), user_id VARCHAR(20), flight_id VARCHAR(20), bookedTime VARCHAR(100), reservation_status VARCHAR(10), ticket_price float);
 
-CREATE TABLE flight (flight_id VARCHAR(20), Time VARCHAR(100), origin VARCHAR(20), destinationa VARCHAR(20), airplane_id VARCHAR(20), price float);
-
+//CREATE TABLE flight (flight_id VARCHAR(20), Time VARCHAR(100), origin VARCHAR(20), destinationa VARCHAR(20), airplane_id VARCHAR(20), price float);
+CREATE TABLE flight(flight_id VARCHAR(20), arrivingTime date, departingTime date, origin VARCHAR(20), destination VARCHAR(20), airplane_id VARCHAR(20), price float, frequency VARCHAR(20));
 CREATE TABLE bank_acc (acc_id VARCHAR(20), acc_holder_name VARCHAR(100), price float);
 
 CREATE TABLE airplane (airplane_id VARCHAR(20), plane_type VARCHAR(100), description VARCHAR(200));

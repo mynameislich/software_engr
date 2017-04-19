@@ -9,10 +9,15 @@ package servlet;
  *
  * @author LICH
  */
-import dao.TypeDataAccess;
-import Model.Airplane_type;
+import Model.Flight;
+import Model.PathFinder;
+import Model.PathNode;
+import dao.FlightDataAccess;
+import dao.UserDataAccess;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -24,8 +29,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Thang
  */
-@WebServlet(name = "AddType", urlPatterns = {"/AddType"})
-public class AddType extends HttpServlet {
+@WebServlet(name = "Search", urlPatterns = {"/Search"})
+public class Search extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -38,19 +43,23 @@ public class AddType extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        //request.setAttribute("AllUser", UserDataAccess.getAllUser());
-        String desc = request.getParameter("Description");
-        float speed = Float.valueOf(request.getParameter("speed"));
-        int id = Integer.valueOf(request.getParameter("Id"));
-        int seatNum = Integer.valueOf(request.getParameter("seatNum"));
-        int eco = Integer.valueOf(request.getParameter("eco"));
-        int bus = Integer.valueOf(request.getParameter("bus"));
-        int first = Integer.valueOf(request.getParameter("first"));
+        String origin_abbr = request.getParameter("origin");
+        String dest_abbr = request.getParameter("destination");
+        String leavingTime = request.getParameter("departTime");
+        String returningTime = request.getParameter("returnTime");
+        PathFinder pf = new PathFinder("");
+        List<PathNode> result;
+        if (returningTime == "") {
 
-        TypeDataAccess da = new TypeDataAccess();
-        Airplane_type n = new Airplane_type(id, seatNum, speed, desc, eco, bus, first);
-        da.addNewType(n);
-        RequestDispatcher rd = request.getRequestDispatcher("JSP/Admin.jsp");
+            result = pf.Caculator1way(dest_abbr, dest_abbr, leavingTime);
+        } else {
+            result = pf.Caculator2way(dest_abbr, dest_abbr, leavingTime, returningTime);
+        }
+        List<Flight> searchResult = new ArrayList();
+        FlightDataAccess fda = new FlightDataAccess();
+        List allflights = fda.getAll();
+        request.setAttribute("theFlights", searchResult);
+        RequestDispatcher rd = request.getRequestDispatcher("JSP/SearchResult.jsp");
         rd.forward(request, response);
     }
 

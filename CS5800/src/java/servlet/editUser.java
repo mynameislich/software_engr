@@ -9,8 +9,8 @@ package servlet;
  *
  * @author LICH
  */
-import dao.TypeDataAccess;
-import Model.Airplane_type;
+import Model.User;
+import dao.UserDataAccess;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
@@ -24,8 +24,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Thang
  */
-@WebServlet(name = "AddType", urlPatterns = {"/AddType"})
-public class AddType extends HttpServlet {
+@WebServlet(name = "editUser", urlPatterns = {"/editUser"})
+public class editUser extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -38,19 +38,25 @@ public class AddType extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        //request.setAttribute("AllUser", UserDataAccess.getAllUser());
-        String desc = request.getParameter("Description");
-        float speed = Float.valueOf(request.getParameter("speed"));
-        int id = Integer.valueOf(request.getParameter("Id"));
-        int seatNum = Integer.valueOf(request.getParameter("seatNum"));
-        int eco = Integer.valueOf(request.getParameter("eco"));
-        int bus = Integer.valueOf(request.getParameter("bus"));
-        int first = Integer.valueOf(request.getParameter("first"));
 
-        TypeDataAccess da = new TypeDataAccess();
-        Airplane_type n = new Airplane_type(id, seatNum, speed, desc, eco, bus, first);
-        da.addNewType(n);
-        RequestDispatcher rd = request.getRequestDispatcher("JSP/Admin.jsp");
+        String firstname = request.getParameter("fname");
+        String lastname = request.getParameter("lname");
+        String gender = request.getParameter("gender");
+        String address = request.getParameter("address");
+        String zip = request.getParameter("zip");
+        String phone = request.getParameter("phone");
+        String phoneBackup = request.getParameter("phoneBackup");
+        String email = request.getParameter("email");
+        String emailBackup = request.getParameter("emailBackup");
+        String password = request.getParameter("password");
+        int age = Integer.parseInt(request.getParameter("age"));
+        int id = Integer.parseInt(request.getParameter("id"));
+        User n = new User(email, password, address, zip, firstname, lastname, 0, id, age, -1, phone, gender, -1);
+
+        UserDataAccess da = new UserDataAccess();
+        da.deleteUser(email);
+        da.addNewUser(n);
+        RequestDispatcher rd = request.getRequestDispatcher("JSP/Customer.jsp");
         rd.forward(request, response);
     }
 

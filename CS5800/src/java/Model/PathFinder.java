@@ -25,7 +25,7 @@ public class PathFinder {
     ArrayList<PathNode> m_allPath = new ArrayList();
     ArrayList<PathNode> m_results = new ArrayList();
 
-    public PathFinder(String time) throws ParseException {
+    public PathFinder(Date time) throws ParseException {
         ArrayList<PathNode> allPath = new ArrayList();
         FlightDataAccess da = new FlightDataAccess();
         List airports = da.getAll();

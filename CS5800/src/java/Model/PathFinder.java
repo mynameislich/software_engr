@@ -23,6 +23,7 @@ public class PathFinder {
 // import time type then do time operation properly
 
     ArrayList<PathNode> m_allPath = new ArrayList();
+    ArrayList<PathNode> m_results = new ArrayList();
 
     public PathFinder(String time) throws ParseException {
         ArrayList<PathNode> allPath = new ArrayList();
@@ -86,7 +87,7 @@ public class PathFinder {
 
     public List<PathNode> Finding(ArrayList<PathNode> thePathes, PathNode thisOne, String target, HashMap theVisited) {
         List result = new ArrayList();
-        
+
         //System.out.println(thisOne.m_first);
         if (theVisited.containsKey(thisOne.m_first)) {
             return result;
@@ -108,15 +109,15 @@ public class PathFinder {
                                     for (int i = 0; i < got.size(); i++) {
                                         result.add(got.get(i));
                                     }
-
+                                    result.add(thisOne);
                                 }
                             }
                         }
                         if (itr.equals(target)) {
                             //theVisited.put(thisOne.m_first, 1);
                             //result.add(thisOne);
-                            
-                            result.add(new PathNode(target,new ArrayList()));
+
+                            result.add(new PathNode(target, new ArrayList()));
                             //return result;
                         }
 

@@ -53,3 +53,9 @@ CREATE TABLE bank_acc (acc_id int NOT NULL AUTO_INCREMENT, acc_holder_name VARCH
 
 CREATE TABLE reservation (reservation_id int NOT NULL AUTO_INCREMENT,user_id varchar(50),bank_acc int, flight_id int,FOREIGN KEY(user_id) REFERENCES user(email), FOREIGN KEY(bank_acc) REFERENCES bank_acc(acc_id),  FOREIGN KEY(flight_id) REFERENCES flight(flight_id), reservation_status int, ticket_price float, seatNum int, classType VARCHAR(20), PRIMARY KEY(reservation_id));
 
+ 	ALTER TABLE airplane_type
+ADD COLUMN first_num int AFTER description;
+ALTER TABLE airplane_type
+ADD COLUMN bus_num int AFTER description;
+ALTER TABLE airplane_type
+ADD COLUMN eco_num int AFTER description;

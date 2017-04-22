@@ -41,3 +41,15 @@ DELIMITER //
  
 create table airplane_type(id int, seat_num int, speed float);
  create table airports(id int, name varchar(200), abbr varchar(10), location varchar(200));
+ ///////////////////////////////////////////////new line
+ 
+ CREATE TABLE user (email VARCHAR(50) NOT NULL, password VARCHAR(100), address VARCHAR(500), zipcode VARCHAR(10), firstname VARCHAR(20), lastname VARCHAR(20), loggedin int, valid_id int, age int, work_id int, phone VARCHAR(15), gender VARCHAR(10), confirm int, PRIMARY KEY (email));
+create table airplane_type(id int NOT NULL AUTO_INCREMENT, seat_num int, speed float, PRIMARY KEY (id));
+CREATE TABLE airplane (airplane_id int NOT NULL AUTO_INCREMENT, plane_type int, FOREIGN KEY(plane_type) REFERENCES airplane_type(id), description VARCHAR(200),  PRIMARY KEY (airplane_id));
+create table airports(abbr varchar(10) NOT NULL, name varchar(200), location varchar(200),PRIMARY KEY (abbr));
+
+CREATE TABLE flight(flight_id int NOT NULL AUTO_INCREMENT, arrivingTime date, departingTime date,airplane_id int,origin varchar(10),destination varchar(10),FOREIGN KEY(origin) REFERENCES airports(abbr), FOREIGN KEY(destination) REFERENCES airports(abbr), FOREIGN KEY(airplane_id) REFERENCES airplane(airplane_id), price float, frequency VARCHAR(20), PRIMARY KEY(flight_id));
+CREATE TABLE bank_acc (acc_id int NOT NULL AUTO_INCREMENT, acc_holder_name VARCHAR(100), price float, PRIMARY KEY(acc_id));
+
+CREATE TABLE reservation (reservation_id int NOT NULL AUTO_INCREMENT,user_id varchar(50),bank_acc int, flight_id int,FOREIGN KEY(user_id) REFERENCES user(email), FOREIGN KEY(bank_acc) REFERENCES bank_acc(acc_id),  FOREIGN KEY(flight_id) REFERENCES flight(flight_id), reservation_status int, ticket_price float, seatNum int, classType VARCHAR(20), PRIMARY KEY(reservation_id));
+

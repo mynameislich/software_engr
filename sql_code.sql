@@ -51,7 +51,8 @@ create table airports(abbr varchar(10) NOT NULL, name varchar(200), location var
 CREATE TABLE flight(flight_id int NOT NULL AUTO_INCREMENT, arrivingTime date, departingTime date,airplane_id int,origin varchar(10),destination varchar(10),FOREIGN KEY(origin) REFERENCES airports(abbr), FOREIGN KEY(destination) REFERENCES airports(abbr), FOREIGN KEY(airplane_id) REFERENCES airplane(airplane_id), price float, frequency VARCHAR(20), PRIMARY KEY(flight_id));
 CREATE TABLE bank_acc (acc_id int NOT NULL AUTO_INCREMENT, acc_holder_name VARCHAR(100), price float, PRIMARY KEY(acc_id));
 
-CREATE TABLE reservation (reservation_id int NOT NULL AUTO_INCREMENT,user_id varchar(50),bank_acc int, flight_id int,FOREIGN KEY(user_id) REFERENCES user(email), FOREIGN KEY(bank_acc) REFERENCES bank_acc(acc_id),  FOREIGN KEY(flight_id) REFERENCES flight(flight_id), reservation_status int, ticket_price float, seatNum int, classType VARCHAR(20), PRIMARY KEY(reservation_id));
+CREATE TABLE reservation (reservation_id int NOT NULL AUTO_INCREMENT,user_id varchar(50),bank_acc int, flight_id int,FOREIGN KEY(user_id) REFERENCES user(email), FOREIGN KEY(bank_acc) REFERENCES bank_acc(acc_id),  FOREIGN KEY(flight_id) REFERENCES flight(flight_id), reservation_status int, ticket_price float, seatNum int, classType VARCHAR(20), PRIMARY KEY(reservation_id))
+
 
  	ALTER TABLE airplane_type
 ADD COLUMN first_num int AFTER description;
@@ -59,3 +60,12 @@ ALTER TABLE airplane_type
 ADD COLUMN bus_num int AFTER description;
 ALTER TABLE airplane_type
 ADD COLUMN eco_num int AFTER description;
+
+
+//for check in customer
+DELIMITER //
+ CREATE PROCEDURE matchCustomerFlights(ResID varchar(100), validID varchar(100))
+   BEGIN
+   SELECT *  FROM user where valid_id = id and reservation_id = ResID;
+   END //
+ DELIMITER ;

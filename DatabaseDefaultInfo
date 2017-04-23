@@ -21,5 +21,23 @@ mail@mail.com	1a2a3a4aA!  Big street # 1	55555	      Dummy	Bot	    1	        1	 
 
 
 
-AIRCRAFT
+AIRCRAFT TYPES
+id   seat_num   speed    description          		 eco	bus	first
+30	19	600	Beechcraft 1900			13	4	2
+31	220	1300	 Airbus A320 family		150	50	20
+32	380	2710	 McDonnell Douglas DC-10	300	60	20
+33	451	8555	Boeing 777			350	50	51
+34	525	8500	Airbus A380 			350	100	75
+35	19	600	Beechcraft 1900C		13	4	2
+36	80	2983	Douglas DC-8			60	10	10
+37	132	3542	Airbus A318			100	17	15
+38	160	3700	Airbus A19			120	24	16
+39	15	256	Beechcraft Model 99		12	2	1
 
+
+
+
+
+
+
+Date Mysql format website: https://www.w3schools.com/SQL/func_date_format.asp

@@ -19,15 +19,15 @@
     <head>
         <title>All Flights</title>
         <meta charset="utf-8">
-        <link rel="stylesheet" href="C:/Users/LICH/Documents/NetBeansProjects/software_engr/CS5800/web/css/reset.css" type="text/css" media="all">
-        <link rel="stylesheet" href="C:/Users/LICH/Documents/NetBeansProjects/software_engr/CS5800/web/css/layout.css" type="text/css" media="all">
-        <link rel="stylesheet" href="C:/Users/LICH/Documents/NetBeansProjects/software_engr/CS5800/web/css/style.css" type="text/css" media="all">
-        <script type="text/javascript" src="C:/Users/LICH/Documents/NetBeansProjects/software_engr/CS5800/web/js/jquery-1.4.2.js" ></script>
-        <script type="text/javascript" src="C:/Users/LICH/Documents/NetBeansProjects/software_engr/CS5800/web/js/cufon-yui.js"></script>
-        <script type="text/javascript" src="C:/Users/LICH/Documents/NetBeansProjects/software_engr/CS5800/web/js/cufon-replace.js"></script>
-        <script type="text/javascript" src="C:/Users/LICH/Documents/NetBeansProjects/software_engr/CS5800/web/js/Myriad_Pro_italic_600.font.js"></script>
-        <script type="text/javascript" src="C:/Users/LICH/Documents/NetBeansProjects/software_engr/CS5800/web/js/Myriad_Pro_italic_400.font.js"></script>
-        <script type="text/javascript" src="C:/Users/LICH/Documents/NetBeansProjects/software_engr/CS5800/web/js/Myriad_Pro_400.font.js"></script>
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/css/reset.css" type="text/css" media="all">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/css/layout.css" type="text/css" media="all">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css" type="text/css" media="all">
+        <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-1.4.2.js" ></script>
+        <script type="text/javascript" src="${pageContext.request.contextPath}/js/cufon-yui.js"></script>
+        <script type="text/javascript" src="${pageContext.request.contextPath}/js/cufon-replace.js"></script>
+        <script type="text/javascript" src="${pageContext.request.contextPath}/js/Myriad_Pro_italic_600.font.js"></script>
+        <script type="text/javascript" src="${pageContext.request.contextPath}/js/Myriad_Pro_italic_400.font.js"></script>
+        <script type="text/javascript" src="${pageContext.request.contextPath}/js/Myriad_Pro_400.font.js"></script><!--[if lt IE 9]>
         <!--[if lt IE 9]>
         <script type="text/javascript" src="js/ie6_script_other.js"></script>
         <script type="text/javascript" src="js/html5.js"></script>
@@ -62,34 +62,34 @@
             <article class="col2 pad_left1">
                 <h2> Flights table</h2> <!-- Stopped here -->
                 <table>
-                           <td>Flight ID</td>
-                           <td>Airplane</td>
-                           <td>To</td>
-                           <td>From</td>
-                           <td>Price</td>
-                           <td>Time</td>
+                    <td>Flight ID</td>
+                    <td>Airplane</td>
+                    <td>To</td>
+                    <td>From</td>
+                    <td>Price</td>
+                    <td>Time</td>
                     <tr>
-                           
-                    <%
-                        List result = (List)request.getAttribute("allFlights");
-                        for (int i = 0; i < result.size(); i++) {
-                            Flight temp = (Flight)result.get(i);
-                            out.println(temp.getId());
-                            out.println(temp.getAirplane_id());
-                            out.println(temp.getDestination());
-                            out.println(temp.getOrigin());
-                            out.println(temp.getPrice());
-                            out.println(temp.getTime());
-                           
-                    %>
 
-                   
-                           <td><%=temp.getId()%></td>
-                           <td><%=temp.getAirplane_id()%></td>
-                           <td><%=temp.getDestination()%></td>
-                           <td><%=temp.getOrigin()%></td>
-                           <td><%=temp.getPrice()%></td>
-                           <td><%=temp.getTime()%></td>
+                        <%
+                            List result = (List) request.getAttribute("allFlights");
+                            for (int i = 0; i < result.size(); i++) {
+                                Flight temp = (Flight) result.get(i);
+                                out.println(temp.getId());
+                                out.println(temp.getAirplane_id());
+                                out.println(temp.getDestination());
+                                out.println(temp.getOrigin());
+                                out.println(temp.getPrice());
+                                out.println(temp.getArrivingTime2());
+
+                        %>
+
+
+                        <td><%=temp.getId()%></td>
+                        <td><%=temp.getAirplane_id()%></td>
+                        <td><%=temp.getDestination()%></td>
+                        <td><%=temp.getOrigin()%></td>
+                        <td><%=temp.getPrice()%></td>
+                        <td><%=temp.getArrivingTime2()%></td>
                     </tr>
 
                     <%

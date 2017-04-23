@@ -20,16 +20,16 @@
     <head>
         <title>Add Airplane</title>
         <meta charset="utf-8">
-        <link rel="stylesheet" href="C:/Users/LICH/Documents/NetBeansProjects/software_engr/CS5800/web/css/reset.css" type="text/css" media="all">
-        <link rel="stylesheet" href="C:/Users/LICH/Documents/NetBeansProjects/software_engr/CS5800/web/css/layout.css" type="text/css" media="all">
-        <link rel="stylesheet" href="C:/Users/LICH/Documents/NetBeansProjects/software_engr/CS5800/web/css/style.css" type="text/css" media="all">
-        <script type="text/javascript" src="C:/Users/LICH/Documents/NetBeansProjects/software_engr/CS5800/web/js/jquery-1.4.2.js" ></script>
-        <script type="text/javascript" src="C:/Users/LICH/Documents/NetBeansProjects/software_engr/CS5800/web/js/cufon-yui.js"></script>
-        <script type="text/javascript" src="C:/Users/LICH/Documents/NetBeansProjects/software_engr/CS5800/web/js/cufon-replace.js"></script>
-        <script type="text/javascript" src="C:/Users/LICH/Documents/NetBeansProjects/software_engr/CS5800/web/js/Myriad_Pro_italic_600.font.js"></script>
-        <script type="text/javascript" src="C:/Users/LICH/Documents/NetBeansProjects/software_engr/CS5800/web/js/Myriad_Pro_italic_400.font.js"></script>
-        <script type="text/javascript" src="C:/Users/LICH/Documents/NetBeansProjects/software_engr/CS5800/web/js/Myriad_Pro_400.font.js"></script>
-
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/css/reset.css" type="text/css" media="all">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/css/layout.css" type="text/css" media="all">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css" type="text/css" media="all">
+        <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-1.4.2.js" ></script>
+        <script type="text/javascript" src="${pageContext.request.contextPath}/js/cufon-yui.js"></script>
+        <script type="text/javascript" src="${pageContext.request.contextPath}/js/cufon-replace.js"></script>
+        <script type="text/javascript" src="${pageContext.request.contextPath}/js/Myriad_Pro_italic_600.font.js"></script>
+        <script type="text/javascript" src="${pageContext.request.contextPath}/js/Myriad_Pro_italic_400.font.js"></script>
+        <script type="text/javascript" src="${pageContext.request.contextPath}/js/Myriad_Pro_400.font.js"></script><!--[if lt IE 9]>
+        
         <!--[if lt IE 9]>
         <script type="text/javascript" src="js/ie6_script_other.js"></script>
         <script type="text/javascript" src="js/html5.js"></script>
@@ -65,7 +65,7 @@
                 <h2>Please add airplane to database </h2> <!-- Stopped here -->
 
                 <form id="ContactForm" name="myForm" action="/CS5800/AddAirplane" method="post">
-                    <div>
+                    
                         <div class="wrapper">
                             <div class="bg">
                                 <input type="text" name="AirID" class="input" required>
@@ -74,8 +74,8 @@
                         </div>
                         <div class="wrapper">
                             <div class="bg">
-                                
-                                <select name="origin"  class="input" required>
+
+                                <select name="AirType"  class="input" required>
                                     <%
 
                                         TypeDataAccess da = new TypeDataAccess();
@@ -83,7 +83,7 @@
                                         List names = new ArrayList();
                                         for (int i = 0; i < types.size(); i++) {
                                             Airplane_type temp = (Airplane_type) types.get(i);
-                                            names.add(temp.getDesc());
+                                            names.add(temp.getId());
                                         }
                                         request.setAttribute("databaseList", names);
                                     %>

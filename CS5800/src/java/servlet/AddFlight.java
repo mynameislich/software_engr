@@ -51,7 +51,7 @@ public class AddFlight extends HttpServlet {
         double price = Double.valueOf(request.getParameter("price"));
         String freq = request.getParameter("frequency");
         FlightDataAccess airData = new FlightDataAccess();
-        Flight plane = new Flight(flightId, timeArrival,timeDepart, origin, dest, plane_id, price,freq);
+        Flight plane = new Flight(flightId, timeArrival,timeDepart,plane_id, origin, dest , price,freq);
         airData.addNew(plane);
         RequestDispatcher rd = request.getRequestDispatcher("JSP/Admin.jsp");
         rd.forward(request, response);

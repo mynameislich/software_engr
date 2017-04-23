@@ -25,7 +25,7 @@ public class Flight {
     DateFormat formatter ; 
     String frequency;
 //changes add a Calendar and Date data type
-    public Flight(String m_flight_id, Date aTime, Date dTime , String m_origin, String m_destination, String m_airplane_id, double m_price ,String m_freq) {
+    public Flight(String m_flight_id, Date aTime, Date dTime ,String m_airplane_id, String m_origin, String m_destination, double m_price ,String m_freq) {
         flight_id = m_flight_id;
         arrivingTime = aTime;
         departingTime = dTime;

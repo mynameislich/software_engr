@@ -32,9 +32,9 @@ public class FlightDataAccess {
             ps.setString(1, n.getId());
             ps.setString(2, n.getArrivingTime2());
             ps.setString(3, n.getDepartingTime2());
-            ps.setString(4, n.getOrigin());
-            ps.setString(5, n.getDestination());
-            ps.setString(6, n.getAirplane_id());
+            ps.setString(5, n.getOrigin());
+            ps.setString(6, n.getDestination());
+            ps.setString(4, n.getAirplane_id());
             ps.setDouble(7, n.getPrice());
             ps.setString(8,n.getFrequency());
             ps.executeUpdate();

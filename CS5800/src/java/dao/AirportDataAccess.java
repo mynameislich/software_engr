@@ -30,8 +30,8 @@ public class AirportDataAccess {
         try {
             PreparedStatement ps = DB_Util.getPreparedStatement("insert into airports values(?,?,?,?)");
             ps.setInt(1, n.getId());
-            ps.setString(2, n.getName());
-            ps.setString(3, n.getAbbr());
+            ps.setString(3, n.getName());
+            ps.setString(2, n.getAbbr());
             ps.setString(4, n.getLoc());
 
             ps.executeUpdate();

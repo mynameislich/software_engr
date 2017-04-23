@@ -1,5 +1,5 @@
 Airports (finished)
-ID  abbr  LOCATION
+ID  	abbr  			name							LOCATION
 121	COIA	Chicago O'hare International AIrport			10000 W O'Hare Ave, Chicago, IL 60666
 123	DFW	DFW International Airport				2400 Aviation Dr, DFW Airport, TX 75261
 120	EIA	Eastern Iowa Airport					2121 Arthur Collins Pkwy SW, Cedar Rapids, IA 52404

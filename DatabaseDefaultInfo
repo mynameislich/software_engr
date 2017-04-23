@@ -1,0 +1,18 @@
+Airports
+ID  abbr  LOCATION
+121	COIA	Chicago O'hare International AIrport	10000 W O'Hare Ave, Chicago, IL 60666
+120	EIA	Eastern Iowa Airport	2121 Arthur Collins Pkwy SW, Cedar Rapids, IA 52404
+122	JFKIA	John F. kennedy International Airport	Queens, NY 11430
+			
+
+
+
+
+USER(note actual password provided here, not encrypted) (all passwords are 1a2a3a4aA!)
+mail          password      address       zip code    First Last  loggedIn  validID age workID  phone     gender  confrim
+mail@mail.com	1a2a3a4aA!  Big street # 1	55555	      Dummy	Bot	    1	        1	    18	  2	  1111111111	Male	    1
+
+
+
+AIRCRAFT
+

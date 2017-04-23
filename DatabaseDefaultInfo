@@ -1,8 +1,15 @@
-Airports
+Airports (finished)
 ID  abbr  LOCATION
 121	COIA	Chicago O'hare International AIrport	10000 W O'Hare Ave, Chicago, IL 60666
+123	DFW	DFW International Airport	2400 Aviation Dr, DFW Airport, TX 75261
 120	EIA	Eastern Iowa Airport	2121 Arthur Collins Pkwy SW, Cedar Rapids, IA 52404
+125	HCMA	Houghton County Memorial Airport	23810 Airpark Blvd, Hancock, MI 49930
+124	HIA	Honolulu International Airport	300 Rodgers Blvd, Honolulu, HI 96819
 122	JFKIA	John F. kennedy International Airport	Queens, NY 11430
+126	KCIA	Kansas CIty International Airport	Kansas City, MO 64153
+127	LANOIA	Louis ArmStrong New Orleans International Airport	900 Airline Dr, Kenner, LA 70062
+128	MA	Minchumina Airport	Lake Minchumina, AK 99757
+129	SFIA	Southwest Florida International Airport	11000 Terminal Access Rd, Fort Myers, FL 33913
 			
 
 

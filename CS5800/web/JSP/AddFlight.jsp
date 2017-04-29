@@ -75,13 +75,17 @@
                         </div>
                         <div class="wrapper">
                             <div class="bg">
-                                <input type="date" name="arrivingTime" class="input" required>
+                                
+                                <input class="form-control" id="date" name="arrivingTime" placeholder="MM/DD/YYY" type="text" required/>
+
                             </div>
                             *Arriving Time:<br />
                         </div>
                                                 <div class="wrapper">
                             <div class="bg">
-                                <input type="date" name="departingTime" class="input" required>
+                                
+                                <input class="form-control" id="date" name="departingTime" placeholder="MM/DD/YYY" type="text" required/>
+
                             </div>
                             *Departing Time:<br />
                         </div>

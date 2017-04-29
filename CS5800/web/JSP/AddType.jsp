@@ -65,7 +65,7 @@ and open the template in the editor.
                         <div>
                             <div class="wrapper">
                                 <div class="bg">
-                                    <input type="text" name="Id" class="input" required>
+                                    <input type="text" name="Id" class="input">
                                 </div>
                                 *ID:<br />
                             </div>

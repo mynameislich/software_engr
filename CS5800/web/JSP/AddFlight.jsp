@@ -69,7 +69,7 @@
                     <div>
                         <div class="wrapper">
                             <div class="bg">
-                                <input type="text" name="flightID" class="input" required>
+                                <input type="text" name="flightID" class="input">
                             </div>
                             *Flight ID:<br />
                         </div>

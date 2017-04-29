@@ -13,6 +13,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import Model.Manager;
+import Model.User;
 
 /**
  *
@@ -56,5 +57,7 @@ public class ManagerDataAccess {
         }
         return n;
     }
+
+
 
 }

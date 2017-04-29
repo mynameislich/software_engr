@@ -17,6 +17,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Login JSP Page</title>
+        
     </head>
     <body>
         <h1>Welcome to Wings for You Airline</h1>

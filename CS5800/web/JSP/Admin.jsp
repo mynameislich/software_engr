@@ -44,11 +44,11 @@ and open the template in the editor.
             <div class="main">
                 <header>
                     <div class="wrapper">
-                        <h1><a href="/CS5800/index" id="logo">AirLines</a><span id="slogan">Wings For You</span></h1>
+                        <h1><a href="/CS5800/JSP/profile.jsp" id="logo">AirLines</a><span id="slogan">Wings For You</span></h1>
                         <div class="right">
                             <nav>
                                 <ul id="menu">
-                                    <li><a href="/CS5800/index">Home</a></li>
+                                    <li><a href="/CS5800/JSP/Home.jsp">Home</a></li>
                                 </ul>
                             </nav>
                         </div>

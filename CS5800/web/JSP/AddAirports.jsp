@@ -67,7 +67,7 @@
                     <div>
                         <div class="wrapper">
                             <div class="bg">
-                                <input type="text" name="ID" class="input" required>
+                                <input type="text" name="ID" class="input"required>
                             </div>
                             *ID:<br /> <!--display on screen = *Variable-->
                         </div>

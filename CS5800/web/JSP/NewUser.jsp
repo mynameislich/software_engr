@@ -47,7 +47,7 @@
                         <div class="right">
                             <nav>
                                 <ul id="menu">
-                                    <li><a href="/CS5800/index">Home</a></li>
+                                    <li><a href="">Home</a></li>
                                 </ul>
                             </nav>
                         </div>

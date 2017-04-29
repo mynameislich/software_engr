@@ -83,30 +83,12 @@ and open the template in the editor.
                    <h2>Dear    <a href="/CS5800/JSP/SignUp.jsp">profile</a></h2>
                     
                     <p>Love the smile, love the job</p>
-                    
                     <a href="/CS5800/JSP/SignUp.jsp"><h3>book tickets for customer</h3></a>
                     
                     <a href="/CS5800/JSP/SignUp.jsp"><h3>check in for customer</h3></a>
                     
                     <a href="/CS5800/JSP/SignUp.jsp"><h3>check reservations for customer</h3></a>
-                    
-                    <form id="ContactForm" name="myForm" action="../ManagerLogin" method="post">
-                        <div>
-                            <div class="wrapper">
-                                <div class="bg">
-                                    <input  name="userName" class="input" required>
-                                </div>
-                                E-mail:<br />
-                            </div>
-                            <div class="wrapper">
-                                <div class="bg">
-                                    <input type="password" name="password"  class="input" required>
-                                </div>
-                                Password:<br />
-                            </div>
-                            <input type="submit" value="Submit" class="button1">
-
-                            </form>
+                    <p></p>
                 </article>
             </section>
         </div>

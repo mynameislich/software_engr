@@ -11,6 +11,7 @@ import dao.FlightDataAccess;
 import java.io.IOException;
 import java.text.DateFormat;
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -39,7 +40,7 @@ public class AddFlight extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, ParseException {
-        DateFormat formatter = null;
+        DateFormat formatter = new SimpleDateFormat("MM/dd/yyyy hh:mm");
         String flightId = request.getParameter("flightID");
         String timeStringArrival = request.getParameter("arrivingTime");
         Date timeArrival = (Date) formatter.parse(timeStringArrival);

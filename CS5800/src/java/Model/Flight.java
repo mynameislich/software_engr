@@ -6,6 +6,7 @@
 package Model;
 
 import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -69,14 +70,14 @@ public class Flight {
     }
     public String getArrivingTime2()
     {
-        formatter = null;
+        formatter = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
         String time = formatter.format(getArrivingTime());
         return time;
     
     }
         public String getDepartingTime2()
     {
-        formatter = null;
+        formatter = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
         String time = formatter.format(getDepartingTime());
         return time;
     

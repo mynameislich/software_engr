@@ -24,12 +24,18 @@ public class PathNode {
             m_second.add(second);
         }
     }
+
     public PathNode(String first, List<String> second) {
         m_first = first;
         m_second = second;
     }
+
     public void visit() {
         visited = true;
+    }
+
+    public String getFirst() {
+        return this.m_first;
     }
 
     public List<PathNode> filter(List<PathNode> inputList, String lastPlace) {

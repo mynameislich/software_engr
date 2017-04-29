@@ -11,6 +11,7 @@ import Model.PathNode;
 import dao.FlightDataAccess;
 import java.text.DateFormat;
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -28,10 +29,10 @@ public class PathFinder {
     public PathFinder(Date time) throws ParseException {
         ArrayList<PathNode> allPath = new ArrayList();
         FlightDataAccess da = new FlightDataAccess();
-        List airports = da.getAll();
-        for (Object each : airports) {
+        List flights = da.getAll();
+        for (Object each : flights) {
             Flight temp = (Flight) each;
-            if (temp.getDepartingTime().equals(time)) {
+            if (temp.getDepartingTime().after(time)) {
                 allPath.add(new PathNode(temp.origin, temp.destination));
             } else {
                 System.out.println(temp.getDepartingTime());
@@ -72,7 +73,8 @@ public class PathFinder {
 
     public List Caculator1way(String from, String to, String departTime) throws ParseException {
         List result = new ArrayList();
-        DateFormat format = null;
+        DateFormat format = new SimpleDateFormat("MM/dd/yyyy");
+        //DateFormat format = null;
         PathFinder PF = new PathFinder(format.parse(departTime));
         List<PathNode> list = PF.getList();
 

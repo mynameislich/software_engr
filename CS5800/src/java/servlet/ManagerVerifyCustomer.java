@@ -5,23 +5,10 @@
  */
 package servlet;
 
-/**
- *
- * @author LICH
- */
-import Model.Flight;
-import Model.PathFinder;
-import Model.PathNode;
-import dao.FlightDataAccess;
+import Model.User;
 import dao.UserDataAccess;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.text.ParseException;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -31,10 +18,10 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Thang
+ * @author Emily
  */
-@WebServlet(name = "Search", urlPatterns = {"/Search"})
-public class Search extends HttpServlet {
+@WebServlet(name = "ManagerVerifyCustomer", urlPatterns = {"/verifyCustomerForBooking"})
+public class ManagerVerifyCustomer extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -46,37 +33,17 @@ public class Search extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException, ParseException {
-        String origin_abbr = request.getParameter("origin");
-        String dest_abbr = request.getParameter("destination");
-        String leavingTime = request.getParameter("departTime");
-        String returningTime = request.getParameter("returnTime");
-        PathFinder pf = new PathFinder(new Date());
-        List<PathNode> result;
-        result = pf.Caculator1way(origin_abbr, dest_abbr, leavingTime);
-        if (returningTime == "") {
-
-            result = pf.Caculator1way(origin_abbr, dest_abbr, leavingTime);
-        } else {
-            result = pf.Caculator2way(origin_abbr, dest_abbr, leavingTime, returningTime);
-        }
-        List<List<String>> orders = new ArrayList();
-        List<String> order = new ArrayList();
-        for (int i = 0; i < result.size(); i++) {
-            if (result.get(i).getFirst() == origin_abbr) {
-                orders.add(order);
-                order.clear();
-                order.add(result.get(i).getFirst());
-            } else {
-                order.add(result.get(i).getFirst());
-            }
-
-        }
-        List<Flight> searchResult = new ArrayList();
-        FlightDataAccess fda = new FlightDataAccess();
-        List allflights = fda.getAll();
-        request.setAttribute("theFlights", searchResult);
-        RequestDispatcher rd = request.getRequestDispatcher("JSP/SearchResult.jsp");
+            throws ServletException, IOException {
+          String email = (String) request.getAttribute("email");
+          String phone = (String) request.getAttribute("phone");
+        
+        
+        UserDataAccess access = new UserDataAccess();
+        User resultEmail = access.matchUserById(email);
+       
+        request.setAttribute("theUser", resultEmail);
+        System.out.println("test servlet:" + resultEmail.getId());
+        RequestDispatcher rd = request.getRequestDispatcher("/JSP/index.jsp");
         rd.forward(request, response);
     }
 
@@ -92,11 +59,7 @@ public class Search extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try {
-            processRequest(request, response);
-        } catch (ParseException ex) {
-            Logger.getLogger(Search.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        processRequest(request, response);
     }
 
     /**
@@ -110,11 +73,7 @@ public class Search extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try {
-            processRequest(request, response);
-        } catch (ParseException ex) {
-            Logger.getLogger(Search.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        processRequest(request, response);
     }
 
     /**

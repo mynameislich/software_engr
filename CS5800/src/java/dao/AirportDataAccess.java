@@ -47,7 +47,7 @@ public class AirportDataAccess {
         try {
             ResultSet rs = DB_Util.getPreparedStatement("select * from airports").executeQuery();
             while (rs.next()) {
-                Airport n = new Airport(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4));
+                Airport n = new Airport(rs.getInt(1), rs.getString(3), rs.getString(2), rs.getString(4));
                 ls.add(n);
 
             }

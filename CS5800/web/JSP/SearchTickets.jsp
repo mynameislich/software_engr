@@ -29,8 +29,15 @@
         <script type="text/javascript" src="../js/cufon-yui.js"></script>
         <script type="text/javascript" src="../js/cufon-replace.js"></script>
         <script type="text/javascript" src="../js/Myriad_Pro_italic_600.font.js"></script>
-        <script type="text/javascript" src="../js/Myriad_Pro_italic_400.font.js"></script>
-        <script type="text/javascript" src="../js/Myriad_Pro_400.font.js"></script>
+        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+
+        <script>
+            $(document).ready(function () {
+                $("#datepicker").datepicker();
+            });
+        </script>
         <!--[if lt IE 9]>
         <script type="text/javascript" src="js/ie6_script_other.js"></script>
         <script type="text/javascript" src="js/html5.js"></script>
@@ -107,18 +114,18 @@
                             *To:<br /> 
 
                         </div>
-                        <div class="wrapper">
-                            <div class="bg">
-                                <input type="text" name="departTime" class="input" required>
+                        
+                        <div >
+                            <div >
+                                <input id ="datepicker" name="returnTime"  >
                             </div>
-
                             *Depart :<br /><br />
-                        </div>           
+                        </div> 
+
                         <div class="wrapper">
                             <div class="bg">
-                                <input type="text" name="returnTime" class="input" >
+                                <input id ="datepicker" name="returnTime" >
                             </div>
-
                             *Return(leave it blank if it is one-way) :<br /><br />
                         </div> 
                     </div>

@@ -26,9 +26,12 @@ import java.util.logging.Logger;
  * @author LICH
  */
 public class FlightDataAccess {
-    public FlightDataAccess(){}
-     public void addNew(Flight n){
-      try {
+
+    public FlightDataAccess() {
+    }
+
+    public void addNew(Flight n) {
+        try {
             PreparedStatement ps = DB_Util.getPreparedStatement("insert into flight values(?,?,?,?,?,?,?,?)");
             SimpleDateFormat sdfr = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss"); //YYYY-MM-DD HH:MI:SS
             ps.setString(1, null);
@@ -38,22 +41,40 @@ public class FlightDataAccess {
             ps.setString(6, n.getDestination());
             ps.setString(4, n.getAirplane_id());
             ps.setDouble(7, n.getPrice());
-            ps.setString(8,n.getFrequency());
+            ps.setString(8, n.getFrequency());
             ps.executeUpdate();
 
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(UserDataAccess.class.getName()).log(Level.SEVERE, null, ex);
         }
-     }
-      public static List<Flight> getAll() throws ParseException {
+    }
+
+    public List<Flight> searchByRoute(String origin, String dest) throws ParseException {
+        List<Flight> ls = new ArrayList<>();
+        try {
+            ResultSet rs = DB_Util.getPreparedStatement("select * from flight where origin =" +origin +"and destination =" + dest).executeQuery();
+            while (rs.next()) {
+                DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+
+                Flight n = new Flight(rs.getString(1), (Date) formatter.parse(rs.getString(2)), (Date) formatter.parse(rs.getString(3)), rs.getString(4), rs.getString(5), rs.getString(6), rs.getDouble(7), rs.getString(8));
+                ls.add(n);
+            }
+        } catch (ClassNotFoundException | SQLException ex) {
+
+            Logger.getLogger(UserDataAccess.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return ls;
+    }
+
+    public static List<Flight> getAll() throws ParseException {
         List<Flight> ls = new ArrayList<>();
 
         try {
             ResultSet rs = DB_Util.getPreparedStatement("select * from flight").executeQuery();
             while (rs.next()) {
                 DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
-        
-                Flight n = new Flight(rs.getString(1),  (Date)formatter.parse(rs.getString(2)),(Date)formatter.parse(rs.getString(3)) ,rs.getString(4), rs.getString(5),rs.getString(6),rs.getDouble(7), rs.getString(8));
+
+                Flight n = new Flight(rs.getString(1), (Date) formatter.parse(rs.getString(2)), (Date) formatter.parse(rs.getString(3)), rs.getString(4), rs.getString(5), rs.getString(6), rs.getDouble(7), rs.getString(8));
                 ls.add(n);
             }
         } catch (ClassNotFoundException | SQLException ex) {

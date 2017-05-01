@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>AirLines</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="css/reset.css" type="text/css" media="all">
+        <link rel="stylesheet" href="css/layout.css" type="text/css" media="all">
+        <link rel="stylesheet" href="css/style.css" type="text/css" media="all">
+        <script type="text/javascript" src="js/jquery-1.4.2.js" ></script>
+        <script type="text/javascript" src="js/cufon-yui.js"></script>
+        <script type="text/javascript" src="js/cufon-replace.js"></script>
+        <script type="text/javascript" src="js/Myriad_Pro_italic_600.font.js"></script>
+        <script type="text/javascript" src="js/Myriad_Pro_italic_400.font.js"></script>
+        <script type="text/javascript" src="js/Myriad_Pro_400.font.js"></script>
+        <!--[if lt IE 9]>
+        <script type="text/javascript" src="js/ie6_script_other.js"></script>
+        <script type="text/javascript" src="js/html5.js"></script>
+        <![endif]-->
+    </head>
+    <body id="page1">
+        <!-- START PAGE SOURCE -->
+        <div class="body1">
+            <div class="main">
+                <header>
+                    <div class="wrapper">
+                        <h1><a href="index.html" id="logo">Wings AirLines</a><span id="slogan">Wings For You</span></h1>
+                        <div class="right">
+                            <nav>
+                                <ul id="top_nav">
+                                    <li><a href="#"><img src="images/img1.gif" alt=""></a></li>
+                                    <li><a href="#"><img src="images/img2.gif" alt=""></a></li>
+                                    <li class="bg_none"><a href="#"><img src="images/img3.gif" alt=""></a></li>
+                                </ul>
+                            </nav>
+                            <nav>
+                                <ul id="menu">
+                                    <li id="menu_active"><a href="index.html">Home</a></li>
+                                    <li><a href="login.html">Log In</a></li>
+                                    <li><a href="JSP/SignUp.jsp">Sign up</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </header>
+            </div>
+        </div>
+        <div class="main">
+            <div id="banner">
+                <div class="text1"> COMFORT<span>Guaranteed</span>
+                    <p>We never overbook our tickets, and we always love to serve you with the best.</p>
+                    <a href="JSP/SignUp.jsp" class="button_top">Join!</a></div>
+            </div>
+
+        </div>
+        <div class="main">
+            <section id="content">
+                <article class="col1">
+                    <div class="pad_1">
+                        <h2>Your Flight Planner</h2>
+                        <form id="form_1" name="myForm" action="/CS5800/Search" method="post">
+                            <div>
+                                <div class="wrapper">
+                                    *From:<br /> 
+                                    <div class="bg">
+                                        <input type="text" class="input input1" name="origin"  value="Enter Airport Code" onBlur="if (this.value == '')
+                                                    this.value = 'Enter Airport Code'" onFocus="if (this.value == 'Enter Airport Code')
+                                                                this.value = ''">
+
+                                    </div>
+
+
+                                </div>
+                                <div class="wrapper">
+                                    *To:<br /> 
+                                    <div class="bg">
+                                        <input type="text" class="input input1" name="destination"  value="Enter Airport Code" onBlur="if (this.value == '')
+                                                    this.value = 'Enter Airport Code'" onFocus="if (this.value == 'Enter Airport Code')
+                                                                this.value = ''">
+
+
+                                    </div>
+
+
+                                </div>
+
+                                <div class="wrapper">
+                                    *Depart time:<br /><br />
+                                    <div class="bg">
+                                        <input class="form-control" id="date" name="departTime" placeholder="MM/DD/YYY" type="text"/>
+
+
+                                    </div>
+
+                                </div> 
+
+                                <div class="wrapper">
+                                    *Return Time(leave it blank if it is one-way) :<br /><br />
+                                    <div class="bg">
+                                        <input class="form-control" id="date" name="returnTime" placeholder="MM/DD/YYY" type="text"/>
+
+                                    </div>
+
+                                </div> 
+                                <div class="wrapper">
+                                    *Choose your class :<br /><br />
+                                    <div class="bg">
+                                        <select name="class"  class="input" required>
+                                            <option value="First">First class</option>
+                                            <option value="Buss">business class</option>
+                                            <option value="Eco">economic class</option>
+                                        </select><br>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <input type="submit" value="Submit" class="button1">
+                        </form>
+                    </div>
+                </article>
+                <article class="col2 pad_left1">
+                    <h2>Welcome to our Website!</h2>
+                    <p class="color1">It is our honor to serve you as your wings. We understand all of your needs for traveling and our goal here is simple:</p>
+                    <p class="color1">To let you enjoy your flight!  </p>
+                    <p class="color1">Remember: </p>
+                    <p class="color1"> We are always your wings!</p>
+                    <div class="marker">
+                        <div class="wrapper">
+                            <p class="pad_bot2"><strong>Aircraft</strong></p>
+                            <p class="pad_bot2">We bought many aircrafts from many different companies. We have all sizes for all different demands, and the only things matter are safety and comfortability. </p>
+                        </div>
+                    </div>
+                    <div class="wrapper">
+                        <article class="cols">
+                            <h2>Today's special</h2>
+                            <p><strong>Save more!</strong> on international flights</p>
+                        </article>
+                        <div class="box1">
+                            <div class="pad_1">
+                                <div class="wrapper">
+                                    <p class="pad_bot2">Helping people enjoy their flights all around the world, at the end of day, is our responsibility and we should feel honorable about this responsibility. </p>
+                                    <p><span class="right">Mr. Zuoyuan Zhao</span>&nbsp;<br>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </section>
+        </div>
+        <div class="body2">
+            <div class="main">
+                <footer>
+                    <div class="footerlink">
+                        <p class="lf">Copyright &copy; 2010 <a href="#">Domain Name</a> - All Rights Reserved</p>
+                        <p class="rf">Design by <a href="http://www.templatemonster.com/">TemplateMonster</a></p>
+                        <div style="clear:both;"></div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+        <script type="text/javascript"> Cufon.now();</script>
+        <!-- END PAGE SOURCE -->
+    </body>
+</html>

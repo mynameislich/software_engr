@@ -19,6 +19,7 @@ import java.io.PrintWriter;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -51,6 +52,7 @@ public class Search extends HttpServlet {
         String dest_abbr = request.getParameter("destination");
         String leavingTime = request.getParameter("departTime");
         String returningTime = request.getParameter("returnTime");
+        String m_class = request.getParameter("class");
         PathFinder pf = new PathFinder(new Date());
         List<PathNode> result;
         result = pf.Caculator1way(origin_abbr, dest_abbr, leavingTime);
@@ -61,21 +63,39 @@ public class Search extends HttpServlet {
             result = pf.Caculator2way(origin_abbr, dest_abbr, leavingTime, returningTime);
         }
         List<List<String>> orders = new ArrayList();
+        //List<List<Flight>> m_flights = new ArrayList();
+        //HashMap<List<String>, List<Flight>> flightMap = new HashMap();
         List<String> order = new ArrayList();
         for (int i = 0; i < result.size(); i++) {
-            if (result.get(i).getFirst() == origin_abbr) {
-                orders.add(order);
-                order.clear();
+            if (result.get(i).getFirst().equals(dest_abbr)) {
+
                 order.add(result.get(i).getFirst());
+                order.clear();
+                orders.add(order);
             } else {
                 order.add(result.get(i).getFirst());
             }
-
         }
-        List<Flight> searchResult = new ArrayList();
+
+        List<List<Flight>> searchResult = new ArrayList();
         FlightDataAccess fda = new FlightDataAccess();
-        List allflights = fda.getAll();
+        for (int i = 0; i < orders.size(); i++) {
+            if (orders.get(i).size() >= 2) {
+                List<Flight> temp_list = new ArrayList();
+                for (int j = 1; j < orders.get(i).size(); j++) {
+
+                    List<Flight> allflights = fda.searchByRoute(orders.get(i).get(j - 1), orders.get(i).get(j));
+                    if (!allflights.isEmpty()) {
+                        temp_list.add(allflights.get(0));
+                    }
+                }
+                searchResult.add(temp_list);
+                temp_list.clear();
+            }
+        }
+        //List<Flight> allflights = fda.searchByRoute(origin_abbr, dest_abbr);
         request.setAttribute("theFlights", searchResult);
+        request.setAttribute("class", m_class);
         RequestDispatcher rd = request.getRequestDispatcher("JSP/SearchResult.jsp");
         rd.forward(request, response);
     }

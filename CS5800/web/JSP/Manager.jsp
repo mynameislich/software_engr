@@ -83,7 +83,7 @@ and open the template in the editor.
                    <h2>Dear    <a href="/CS5800/JSP/SignUp.jsp">profile</a></h2>
                     
                     <p>Love the smile, love the job</p>
-                    <a href="/CS5800/JSP/SignUp.jsp"><h3>book tickets for customer</h3></a>
+                    <a href="/CS5800/JSP/VerifyCustomer.jsp"><h3>book tickets for customer</h3></a>
                     
                     <a href="/CS5800/JSP/SignUp.jsp"><h3>check in for customer</h3></a>
                     

@@ -1,7 +1,7 @@
 <%-- 
     Document   : SearchTickets
     Created on : Apr 16, 2017, 5:24:55 PM
-    Author     : LICH
+    Author     : Emily 
 --%>
 
 
@@ -20,7 +20,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Search tickets</title>
+        <title>Search tickets for Customer</title>
         <link rel="stylesheet" href="${pageContext.request.contextPath}/css/reset.css" type="text/css" media="all">
         <link rel="stylesheet" href="${pageContext.request.contextPath}/css/layout.css" type="text/css" media="all">
         <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css" type="text/css" media="all">

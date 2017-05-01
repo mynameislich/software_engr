@@ -93,7 +93,7 @@
                 <article class="col2 pad_left1">
                     <h2>Account Created, thank you!</h2>
                     <h3>please go to your email to check confirmation</h3>
-                    <%          User n = new User(email, password, address, zip, firstname, lastname, 0,id, age,-1 , phone, gender, -1);
+                    <% User n = new User(email, password, address, zip, firstname, lastname, 0,id, age,-1 , phone, gender, -1);
 
                         UserDataAccess da = new UserDataAccess();
                         da.addNewUser(n);

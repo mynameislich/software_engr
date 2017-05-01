@@ -73,8 +73,11 @@ public class Search extends HttpServlet {
 
         }
         List<Flight> searchResult = new ArrayList();
-        FlightDataAccess fda = new FlightDataAccess();
-        List allflights = fda.getAll();
+        for (int i = 0; i < orders.size(); i++) {
+            
+        }
+        //FlightDataAccess fda = new FlightDataAccess();
+        //List allflights = fda.getAll();
         request.setAttribute("theFlights", searchResult);
         RequestDispatcher rd = request.getRequestDispatcher("JSP/SearchResult.jsp");
         rd.forward(request, response);
